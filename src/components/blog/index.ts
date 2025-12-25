@@ -13,3 +13,4 @@ export { TableOfContents } from "./TableOfContents";
 export { AuthorCard } from "./AuthorCard";
 export { ArticleNavigation } from "./ArticleNavigation";
 export { CommentSection } from "./CommentSection";
+export { RelatedArticles } from "./RelatedArticles";

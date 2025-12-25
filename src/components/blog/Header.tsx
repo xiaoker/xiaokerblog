@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { ThemeToggle } from "./ThemeToggle";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import logo from "@/assets/logo.png";
 
 const navItems = [
   { label: "首页", href: "/", emoji: "🏠" },
@@ -17,14 +17,11 @@ export function Header({ onSearchClick }: HeaderProps) {
     <header className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="content-container-wide">
         <div className="flex h-12 items-center justify-between">
-          {/* Avatar + Navigation */}
+          {/* Logo + Navigation */}
           <nav className="flex items-center">
-            {/* Avatar */}
+            {/* Logo */}
             <Link to="/" className="flex items-center">
-              <Avatar className="h-7 w-7">
-                <AvatarImage src="/avatar.png" alt="xiaoker" />
-                <AvatarFallback className="text-xs">XK</AvatarFallback>
-              </Avatar>
+              <img src={logo} alt="Logo" className="h-7 w-7" />
             </Link>
             <span className="mx-3 text-muted-foreground/50">·</span>
             

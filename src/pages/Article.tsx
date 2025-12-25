@@ -115,14 +115,14 @@ export default function ArticlePage() {
               </p>
             </ArticleContent>
 
-            <AuthorCard
-              name="xiaoker"
-              bio="独立开发者，热爱技术与设计。在这里记录我的学习和思考。"
-            />
-
             <RelatedArticles 
               articles={mockArticles} 
               currentSlug={slug || ""} 
+            />
+
+            <AuthorCard
+              name="xiaoker"
+              bio="独立开发者，热爱技术与设计。在这里记录我的学习和思考。"
             />
 
             <ArticleNavigation

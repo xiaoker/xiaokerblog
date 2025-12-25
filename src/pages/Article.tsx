@@ -8,6 +8,7 @@ import {
   AuthorCard,
   ArticleNavigation,
   CommentSection,
+  RelatedArticles,
 } from "@/components/blog";
 import { Callout, Quote } from "@/components/mdx";
 import { mockArticles } from "@/data/mockArticles";
@@ -117,6 +118,11 @@ export default function ArticlePage() {
             <AuthorCard
               name="xiaoker"
               bio="独立开发者，热爱技术与设计。在这里记录我的学习和思考。"
+            />
+
+            <RelatedArticles 
+              articles={mockArticles} 
+              currentSlug={slug || ""} 
             />
 
             <ArticleNavigation

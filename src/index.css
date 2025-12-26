@@ -45,8 +45,8 @@
     --prose-quote-border: 240 10% 80%;
 
     /* Reading width */
-    --content-width: 840px;
-    --content-width-wide: 1100px;
+    --content-width: 960px;
+    --content-width-wide: 1280px;
 
     /* Sidebar tokens */
     --sidebar-background: 0 0% 98%;

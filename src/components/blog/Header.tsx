@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { ThemeToggle } from "./ThemeToggle";
-import logo from "@/assets/logo.png";
 
 const navItems = [
   { label: "首页", href: "/", emoji: "🏠" },
@@ -17,15 +16,8 @@ export function Header({ onSearchClick }: HeaderProps) {
     <header className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="content-container-wide">
         <div className="flex h-12 items-center justify-between">
-          {/* Logo + Navigation */}
+          {/* Navigation */}
           <nav className="flex items-center">
-            {/* Logo */}
-            <Link to="/" className="flex items-center">
-              <img src={logo} alt="Logo" className="h-7 w-7" />
-            </Link>
-            <span className="mx-3 text-muted-foreground/50">·</span>
-            
-            {/* Nav Items */}
             {navItems.map((item, index) => (
               <span key={item.href} className="flex items-center">
                 <Link

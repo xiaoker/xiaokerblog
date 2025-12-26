@@ -22,7 +22,7 @@ export default function HomePage() {
         {/* Hero Section */}
         <section className="mb-12">
           <div className="flex items-center gap-4 mb-6">
-            <Avatar className="h-16 w-16 shrink-0">
+            <Avatar className="h-16 w-16 shrink-0 ring-2 ring-border">
               <AvatarImage 
                 src={avatarImage} 
                 alt="xiaoker" 

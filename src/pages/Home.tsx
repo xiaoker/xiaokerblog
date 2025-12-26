@@ -7,6 +7,7 @@ import {
 } from "@/components/blog";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { mockArticles, categories } from "@/data/mockArticles";
+import avatarImage from "@/assets/avatar.jpg";
 
 export default function HomePage() {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
@@ -22,7 +23,11 @@ export default function HomePage() {
         <section className="mb-12">
           <div className="flex items-center gap-4 mb-6">
             <Avatar className="h-16 w-16 shrink-0">
-              <AvatarImage src="/avatar.png" alt="xiaoker" />
+              <AvatarImage 
+                src={avatarImage} 
+                alt="xiaoker" 
+                className="object-cover object-[center_15%]"
+              />
               <AvatarFallback>XK</AvatarFallback>
             </Avatar>
             <h1 className="text-3xl md:text-4xl font-bold tracking-tight">

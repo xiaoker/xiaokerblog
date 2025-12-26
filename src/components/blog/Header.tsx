@@ -22,7 +22,7 @@ export function Header({ onSearchClick }: HeaderProps) {
               <span key={item.href} className="flex items-center">
                 <Link
                   to={item.href}
-                  className="text-base text-muted-foreground hover:text-foreground transition-colors"
+                  className="text-base font-medium text-muted-foreground hover:text-foreground transition-colors"
                 >
                   {item.label}
                 </Link>

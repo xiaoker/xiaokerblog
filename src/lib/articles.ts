@@ -1,8 +1,20 @@
-import { Article } from "@/components/blog";
+import { ComponentType } from "react";
 
-// Mock data for demonstration
-// In Next.js, this would come from your MDX files via contentlayer or next-mdx-remote
-export const mockArticles: Article[] = [
+export interface ArticleMeta {
+  slug: string;
+  title: string;
+  date: string;
+  excerpt: string;
+  category: string;
+  readingTime: string;
+}
+
+export interface ArticleData extends ArticleMeta {
+  Component: ComponentType;
+}
+
+// Article data - add new articles here
+const articlesData: ArticleMeta[] = [
   {
     slug: "building-a-personal-blog",
     title: "构建一个属于自己的个人博客",
@@ -45,6 +57,32 @@ export const mockArticles: Article[] = [
   },
 ];
 
-export const categories = Array.from(
-  new Set(mockArticles.map((a) => a.category))
-);
+// Lazy load MDX components
+const articleComponents: Record<string, () => Promise<{ default: ComponentType }>> = {
+  "building-a-personal-blog": () => import("@/content/articles/building-a-personal-blog.mdx"),
+  "mdx-for-content-creation": () => import("@/content/articles/mdx-for-content-creation.mdx"),
+  "minimalist-design-philosophy": () => import("@/content/articles/minimalist-design-philosophy.mdx"),
+  "effective-note-taking": () => import("@/content/articles/effective-note-taking.mdx"),
+  "reading-in-digital-age": () => import("@/content/articles/reading-in-digital-age.mdx"),
+};
+
+// Get all articles metadata (for listing pages)
+export function getAllArticles(): ArticleMeta[] {
+  return [...articlesData].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+}
+
+// Get article metadata by slug
+export function getArticleMeta(slug: string): ArticleMeta | null {
+  return articlesData.find((a) => a.slug === slug) || null;
+}
+
+// Get article component loader by slug
+export function getArticleLoader(slug: string): (() => Promise<{ default: ComponentType }>) | null {
+  return articleComponents[slug] || null;
+}
+
+// Get all unique categories
+export function getAllCategories(): string[] {
+  const categories = new Set(articlesData.map((a) => a.category));
+  return Array.from(categories);
+}

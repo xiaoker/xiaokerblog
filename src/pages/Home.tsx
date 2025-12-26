@@ -6,15 +6,18 @@ import {
   CategoryFilter,
 } from "@/components/blog";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { mockArticles, categories } from "@/data/mockArticles";
+import { getAllArticles, getAllCategories } from "@/lib/articles";
 import avatarImage from "@/assets/avatar.jpg";
 
 export default function HomePage() {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
 
+  const allArticles = getAllArticles();
+  const categories = getAllCategories();
+
   const filteredArticles = activeCategory
-    ? mockArticles.filter((a) => a.category === activeCategory)
-    : mockArticles;
+    ? allArticles.filter((a) => a.category === activeCategory)
+    : allArticles;
 
   return (
     <Layout>

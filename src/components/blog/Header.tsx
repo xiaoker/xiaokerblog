@@ -15,14 +15,14 @@ export function Header({ onSearchClick }: HeaderProps) {
   return (
     <header className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="content-container-wide">
-        <div className="flex h-12 items-center justify-center">
+        <div className="flex h-12 items-center justify-between">
           {/* Navigation */}
           <nav className="flex items-center">
             {navItems.map((item, index) => (
               <span key={item.href} className="flex items-center">
                 <Link
                   to={item.href}
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  className="text-base text-muted-foreground hover:text-foreground transition-colors"
                 >
                   {item.label}
                 </Link>
@@ -33,10 +33,8 @@ export function Header({ onSearchClick }: HeaderProps) {
             ))}
           </nav>
 
-          {/* Theme Toggle - positioned absolute right */}
-          <div className="absolute right-4 md:right-8">
-            <ThemeToggle />
-          </div>
+          {/* Theme Toggle */}
+          <ThemeToggle />
         </div>
       </div>
     </header>

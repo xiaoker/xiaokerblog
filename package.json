@@ -82,9 +82,7 @@
     "typescript-eslint": "^8.38.0"
   },
   "overrides": {
-    "next-themes": {
-      "react": "$react",
-      "react-dom": "$react-dom"
-    }
+    "react": "$react",
+    "react-dom": "$react-dom"
   }
 }

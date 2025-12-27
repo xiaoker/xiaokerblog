@@ -34,13 +34,20 @@ export function Callout({ type = "info", title, children }: CalloutProps) {
         styles[type]
       )}
     >
-      <div className="flex items-start gap-3">
-        <Icon className="h-5 w-5 mt-0.5 shrink-0" />
-        <div>
-          {title && <p className="font-semibold mb-1">{title}</p>}
+      {title ? (
+        <div className="flex flex-col gap-2">
+          <div className="flex items-center gap-2">
+            <Icon className="h-5 w-5 shrink-0" />
+            <p className="font-bold">{title}</p>
+          </div>
+          <div className="text-sm pl-7">{children}</div>
+        </div>
+      ) : (
+        <div className="flex items-start gap-3">
+          <Icon className="h-5 w-5 mt-0.5 shrink-0" />
           <div className="text-sm">{children}</div>
         </div>
-      </div>
+      )}
     </div>
   );
 }

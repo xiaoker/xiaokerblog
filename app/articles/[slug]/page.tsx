@@ -1,11 +1,14 @@
 import { notFound } from 'next/navigation'
-import { getArticleBySlug, getArticleContent, getAllArticles } from '@/lib/articles'
+import { getArticleBySlug, getArticleRawContent, getAllArticles } from '@/lib/articles'
 import { ArticleHeader } from '@/components/blog/ArticleHeader'
 import { AuthorCard } from '@/components/blog/AuthorCard'
 import { ArticleNavigation } from '@/components/blog/ArticleNavigation'
 import { RelatedArticles } from '@/components/blog/RelatedArticles'
 import { CommentSection } from '@/components/blog/CommentSection'
 import { TableOfContents } from '@/components/blog/TableOfContents'
+import { MDXRemote } from 'next-mdx-remote/rsc'
+import remarkGfm from 'remark-gfm'
+import { useMDXComponents } from '@/mdx-components'
 
 interface Props {
     params: Promise<{ slug: string }>
@@ -36,28 +39,15 @@ export default async function ArticlePage({ params }: Props) {
     const article = getArticleBySlug(resolvedParams.slug)
     if (!article) notFound()
 
-    const Content = await getArticleContent(resolvedParams.slug)
+    const content = getArticleRawContent(resolvedParams.slug)
+    if (!content) return <p>Content not found</p>
+
     const allArticles = getAllArticles()
 
     const articleIndex = allArticles.findIndex((a) => a.slug === resolvedParams.slug)
-    const prevArticle = articleIndex < allArticles.length - 1 ? allArticles[articleIndex + 1] : undefined
-    const nextArticle = articleIndex > 0 ? allArticles[articleIndex - 1] : undefined
-    // Note: sort order in getAllArticles is desc (newest first). 
-    // Index 0 is newest. Index N is oldest.
-    // Next Article (newer) should be index-1. Prev Article (older) should be index+1.
-    // wait, "Previous Article" usually means "Older Article"? Or "Left in pagination"?
-    // Usually "Next Post" -> Newer. "Previous Post" -> Older.
-    // But if list is [Newest, ..., Oldest]
-    // i=0 (Newest). Next(Newer) = null. Prev(Older) = i+1.
-    // Let's stick to simple logic: 
-    // prevArticle = older = index + 1
-    // nextArticle = newer = index - 1
     const newerArticle = articleIndex > 0 ? allArticles[articleIndex - 1] : undefined
     const olderArticle = articleIndex < allArticles.length - 1 ? allArticles[articleIndex + 1] : undefined
 
-    // Sample headings - extracting TOC from MDX is harder without plugins. 
-    // For now I'll use empty or static sample from original code if available.
-    // The original used `sampleHeadings`. I'll omit TOC or use empty for now.
     const sampleHeadings: { id: string; text: string; level: number }[] = []
 
     return (
@@ -67,15 +57,20 @@ export default async function ArticlePage({ params }: Props) {
                     <ArticleHeader
                         title={article.title}
                         date={article.date}
-                        // readingTime={article.readTime} // Interface mismatch? lib/articles has readTime. ArticleHeader needs readingTime?
-                        // Let's check ArticleHeader props.
-                        // Assuming it takes readingTime.
                         readingTime={article.readTime}
                         category={article.category}
                     />
 
                     <div className="prose prose-neutral dark:prose-invert max-w-none mt-8">
-                        {Content ? <Content /> : <p>Content loading error</p>}
+                        <MDXRemote
+                            source={content}
+                            components={useMDXComponents({})}
+                            options={{
+                                mdxOptions: {
+                                    remarkPlugins: [remarkGfm],
+                                }
+                            }}
+                        />
                     </div>
 
                     <RelatedArticles articles={allArticles} currentSlug={article.slug} />

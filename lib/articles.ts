@@ -55,11 +55,17 @@ export function getArticleBySlug(slug: string): Article | undefined {
   return articles.find((article) => article.slug === slug)
 }
 
-export async function getArticleContent(slug: string) {
+// getArticleContent returns a component (via import) - this relies on the loader, which we are abandoning for body content.
+// We will keeping it for backwards compatibility if needed, but adding a new one for MDXRemote.
+
+export function getArticleRawContent(slug: string): string | null {
   try {
-    const { default: Content } = await import(`@/content/articles/${slug}.mdx`)
-    return Content
+    const fullPath = path.join(articlesDirectory, `${slug}.mdx`)
+    const fileContents = fs.readFileSync(fullPath, 'utf8')
+    const { content } = matter(fileContents)
+    return content
   } catch (error) {
     return null
   }
 }
+

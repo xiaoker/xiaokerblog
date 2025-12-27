@@ -6,6 +6,13 @@ import { useTheme } from "next-themes";
 export function CommentSection() {
   const { theme } = useTheme();
 
+  console.log('Giscus Config Debug:', {
+    repo: process.env.NEXT_PUBLIC_GISCUS_REPO,
+    repoId: process.env.NEXT_PUBLIC_GISCUS_REPO_ID,
+    category: process.env.NEXT_PUBLIC_GISCUS_CATEGORY,
+    categoryId: process.env.NEXT_PUBLIC_GISCUS_CATEGORY_ID
+  });
+
   return (
     <section className="mt-16 pt-8 border-t border-border">
       <h3 className="text-xl font-semibold mb-6">评论</h3>

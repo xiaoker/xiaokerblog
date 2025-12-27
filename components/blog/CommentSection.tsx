@@ -11,10 +11,10 @@ export function CommentSection() {
       <h3 className="text-xl font-semibold mb-6">评论</h3>
       <Giscus
         id="comments"
-        repo="xiaoker/xiaokerblog"
-        repoId="R_kgDOQvKniw"
-        category="Announcements"
-        categoryId="DIC_kwDOQvKni84C0Qq9"
+        repo={process.env.NEXT_PUBLIC_GISCUS_REPO as `${string}/${string}`}
+        repoId={process.env.NEXT_PUBLIC_GISCUS_REPO_ID || ""}
+        category={process.env.NEXT_PUBLIC_GISCUS_CATEGORY || ""}
+        categoryId={process.env.NEXT_PUBLIC_GISCUS_CATEGORY_ID || ""}
         mapping="pathname"
         reactionsEnabled="1"
         emitMetadata="0"

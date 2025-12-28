@@ -34,20 +34,33 @@ export function Callout({ type = "info", title, children }: CalloutProps) {
         styles[type]
       )}
     >
-      {title ? (
-        <div className="flex flex-col gap-0">
-          <div className="flex items-center gap-2 mb-1">
-            <Icon className="h-5 w-5 shrink-0" />
-            <p className="font-bold m-0 leading-none">{title}</p>
+      {/* 使用 Grid 布局彻底解决对齐和缩进问题 */}
+      <div className="grid grid-cols-[min-content_1fr] gap-x-3">
+        {/* 图标列：根据是否有标题决定对齐方式 */}
+        <div
+          className={cn(
+            "flex items-center justify-center h-6 w-6 shrink-0", // h-6 匹配 leading-6 (text-base/text-sm relaxed) 的行高
+            title ? "self-center" : "self-start" // 有标题时垂直居中，无标题时顶对齐(但被 h-6 把控)
+          )}
+        >
+          <Icon className="h-5 w-5" />
+        </div>
+
+        {/* 内容列 */}
+        <div className="flex flex-col gap-1 min-w-0">
+          {title && (
+            <p className="font-bold leading-6 m-0 flex items-center h-6">
+              {title}
+            </p>
+          )}
+          <div className={cn(
+            "text-sm text-foreground/90 [&>p]:!my-0 leading-relaxed",
+            // 如果没有标题，不需要额外的顶部间距。如果有标题，gap-1 已经处理了间距。
+          )}>
+            {children}
           </div>
-          <div className="text-sm pl-7 text-foreground/90 [&>p]:!my-0 leading-normal">{children}</div>
         </div>
-      ) : (
-        <div className="flex items-start gap-3">
-          <Icon className="h-5 w-5 shrink-0 translate-y-[2px]" />
-          <div className="text-sm text-foreground/90 [&>p]:!my-0 leading-relaxed">{children}</div>
-        </div>
-      )}
+      </div>
     </div>
   );
 }

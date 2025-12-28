@@ -61,7 +61,7 @@ export default async function ArticlePage({ params }: Props) {
                         category={article.category}
                     />
 
-                    <div className="prose prose-neutral dark:prose-invert max-w-none mt-8">
+                    <div className="prose prose-neutral dark:prose-invert max-w-[65ch] mt-8">
                         <MDXRemote
                             source={content}
                             components={useMDXComponents({})}

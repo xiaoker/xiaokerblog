@@ -14,14 +14,14 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         Quote,
 
         // Override default elements
-        h1: ({ children }) => (
-            <h1 className="text-3xl font-bold tracking-tight mt-8 mb-4">{children}</h1>
+        h1: ({ children, ...props }) => (
+            <h1 className="text-3xl font-bold tracking-tight mt-8 mb-4" {...props}>{children}</h1>
         ),
-        h2: ({ children }) => (
-            <h2 className="text-2xl font-semibold tracking-tight mt-8 mb-3">{children}</h2>
+        h2: ({ children, ...props }) => (
+            <h2 className="text-2xl font-semibold tracking-tight mt-8 mb-3" {...props}>{children}</h2>
         ),
-        h3: ({ children }) => (
-            <h3 className="text-xl font-semibold mt-6 mb-2">{children}</h3>
+        h3: ({ children, ...props }) => (
+            <h3 className="text-xl font-semibold mt-6 mb-2" {...props}>{children}</h3>
         ),
         p: ({ children }) => (
             <p className="leading-7 mb-4">{children}</p>

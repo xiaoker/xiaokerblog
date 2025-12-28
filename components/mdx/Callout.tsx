@@ -47,7 +47,7 @@ export function Callout({ type = "info", title, children }: CalloutProps) {
         </div>
 
         {/* 内容列 */}
-        <div className="flex flex-col gap-1 min-w-0">
+        <div className="flex flex-col gap-0 min-w-0">
           {title && (
             <p className="font-bold leading-6 m-0 flex items-center h-6">
               {title}

@@ -8,6 +8,7 @@ import { CommentSection } from '@/components/blog/CommentSection'
 import { TableOfContents } from '@/components/blog/TableOfContents'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import remarkGfm from 'remark-gfm'
+import rehypeSlug from 'rehype-slug'
 import { useMDXComponents } from '@/mdx-components'
 import { extractHeadings } from '@/lib/utils'
 
@@ -71,6 +72,7 @@ export default async function ArticlePage({ params }: Props) {
                             options={{
                                 mdxOptions: {
                                     remarkPlugins: [remarkGfm],
+                                    rehypePlugins: [rehypeSlug],
                                 }
                             }}
                         />

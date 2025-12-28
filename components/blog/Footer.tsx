@@ -1,21 +1,18 @@
-import { Github, Twitter, Mail } from "lucide-react";
+import { Github, Twitter } from "lucide-react";
 
 const socialLinks = [
   { icon: Github, href: "https://github.com/xiaoker", label: "GitHub" },
   { icon: Twitter, href: "https://x.com/xiaoker", label: "Twitter" },
-  { icon: Mail, href: "mailto:hello@xiaoker.com", label: "Email" },
 ];
 
 export function Footer() {
-  const currentYear = new Date().getFullYear();
-
   return (
     <footer className="border-t border-border mt-16">
       <div className="content-container-wide py-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           {/* Copyright */}
           <p className="text-sm text-muted-foreground">
-            © {currentYear} xiaoker. All rights reserved.
+            © 2026 xiaoker.com All rights reserved.
           </p>
 
           {/* Social Links */}

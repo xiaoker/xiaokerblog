@@ -35,17 +35,17 @@ export function Callout({ type = "info", title, children }: CalloutProps) {
       )}
     >
       {title ? (
-        <div className="flex flex-col gap-1">
-          <div className="flex items-center gap-2">
+        <div className="flex flex-col gap-0">
+          <div className="flex items-center gap-2 mb-1">
             <Icon className="h-5 w-5 shrink-0" />
-            <p className="font-bold m-0">{title}</p>
+            <p className="font-bold m-0 leading-none">{title}</p>
           </div>
-          <div className="text-sm pl-7 text-foreground/90 [&>p]:!my-0">{children}</div>
+          <div className="text-sm pl-7 text-foreground/90 [&>p]:!my-0 leading-normal">{children}</div>
         </div>
       ) : (
         <div className="flex items-start gap-3">
-          <Icon className="h-5 w-5 mt-0.5 shrink-0" />
-          <div className="text-sm text-foreground/90 [&>p]:!my-0">{children}</div>
+          <Icon className="h-5 w-5 shrink-0 translate-y-[2px]" />
+          <div className="text-sm text-foreground/90 [&>p]:!my-0 leading-relaxed">{children}</div>
         </div>
       )}
     </div>

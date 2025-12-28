@@ -14,7 +14,7 @@ export function ArticleList({ articles }: ArticleListProps) {
   }
 
   return (
-    <div className="divide-y divide-border">
+    <div className="space-y-6">
       {articles.map((article) => (
         <ArticleCard key={article.slug} article={article} />
       ))}

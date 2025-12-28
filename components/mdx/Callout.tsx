@@ -39,8 +39,8 @@ export function Callout({ type = "info", title, children }: CalloutProps) {
         {/* 图标列：根据是否有标题决定对齐方式 */}
         <div
           className={cn(
-            "flex items-center justify-center h-6 w-6 shrink-0", // h-6 匹配 leading-6 (text-base/text-sm relaxed) 的行高
-            title ? "self-center" : "self-start" // 有标题时垂直居中，无标题时顶对齐(但被 h-6 把控)
+            "flex items-center justify-center h-6 w-6 shrink-0 rounded-sm select-none", // h-6 匹配 title 的 height
+            "self-start" // 永远顶对齐：因为右侧 Title 也是在顶部，这样它们就在同一水平线上了
           )}
         >
           <Icon className="h-5 w-5" />

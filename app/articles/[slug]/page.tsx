@@ -51,9 +51,9 @@ export default async function ArticlePage({ params }: Props) {
     const sampleHeadings: { id: string; text: string; level: number }[] = []
 
     return (
-        <div className="content-container-wide">
-            <div className="py-8 md:py-12 flex gap-12">
-                <article className="flex-1 min-w-0">
+        <div className="content-container relative">
+            <div className="py-8 md:py-12">
+                <article className="min-w-0 w-full">
                     <ArticleHeader
                         title={article.title}
                         date={article.date}
@@ -61,7 +61,7 @@ export default async function ArticlePage({ params }: Props) {
                         category={article.category}
                     />
 
-                    <div className="prose prose-neutral dark:prose-invert max-w-[65ch] mt-8">
+                    <div className="prose prose-neutral dark:prose-invert max-w-none mt-8">
                         <MDXRemote
                             source={content}
                             components={useMDXComponents({})}
@@ -79,8 +79,15 @@ export default async function ArticlePage({ params }: Props) {
                     <CommentSection />
                 </article>
 
-                <aside className="hidden lg:block w-64 shrink-0">
-                    <TableOfContents headings={sampleHeadings} />
+                {/* 
+                  Sidebar: Poised absolutely to the right of the centered content.
+                  Visible only on XL screens (creates a "Medium-like" centered layout with potential sidebar).
+                  grid-area or absolute positioning ensures main column doesn't shift.
+                */}
+                <aside className="hidden xl:block absolute top-0 left-full ml-12 h-full w-64">
+                    <div className="sticky top-24">
+                        <TableOfContents headings={sampleHeadings} />
+                    </div>
                 </aside>
             </div>
         </div>

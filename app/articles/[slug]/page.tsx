@@ -9,6 +9,7 @@ import { TableOfContents } from '@/components/blog/TableOfContents'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import remarkGfm from 'remark-gfm'
 import { useMDXComponents } from '@/mdx-components'
+import { extractHeadings } from '@/lib/utils'
 
 interface Props {
     params: Promise<{ slug: string }>
@@ -41,6 +42,8 @@ export default async function ArticlePage({ params }: Props) {
 
     const content = getArticleRawContent(resolvedParams.slug)
     if (!content) return <p>Content not found</p>
+
+    const headings = extractHeadings(content)
 
     const allArticles = getAllArticles()
 
@@ -86,7 +89,7 @@ export default async function ArticlePage({ params }: Props) {
                 */}
                 <aside className="hidden xl:block absolute top-0 left-full ml-12 h-full w-64">
                     <div className="sticky top-24">
-                        <TableOfContents headings={sampleHeadings} />
+                        <TableOfContents headings={headings} />
                     </div>
                 </aside>
             </div>

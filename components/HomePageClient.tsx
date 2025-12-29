@@ -15,7 +15,7 @@ import {
     PaginationPrevious,
 } from "@/components/ui/pagination";
 
-const POSTS_PER_PAGE = 5;
+const POSTS_PER_PAGE = 3;
 
 interface HomePageClientProps {
     articles: Article[];

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { getAllCategories } from '@/lib/articles'
 import { Inter } from 'next/font/google'
 import { GoogleAnalytics } from '@next/third-parties/google'
 import { ThemeProvider } from '@/components/theme-provider'
@@ -22,6 +23,8 @@ export default function RootLayout({
 }: {
     children: React.ReactNode
 }) {
+    const categories = getAllCategories();
+
     return (
         <html lang="zh-CN" suppressHydrationWarning>
             <body className={inter.className}>
@@ -31,7 +34,7 @@ export default function RootLayout({
                     enableSystem
                     disableTransitionOnChange
                 >
-                    <SiteLayout>
+                    <SiteLayout categories={categories}>
                         {children}
                     </SiteLayout>
                 </ThemeProvider>

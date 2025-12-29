@@ -1,9 +1,9 @@
 "use client"
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import { PageContainer } from "@/components/blog/PageContainer";
 import { ArticleList } from "@/components/blog/ArticleList";
-import { CategoryFilter } from "@/components/blog/CategoryFilter";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Article } from "@/lib/articles";
 import {
@@ -15,21 +15,25 @@ import {
     PaginationPrevious,
 } from "@/components/ui/pagination";
 
-import { Search } from "lucide-react";
-import { Input } from "@/components/ui/input";
-
-// ... (imports remain)
-
 const POSTS_PER_PAGE = 5;
 
 interface HomePageClientProps {
     articles: Article[];
+    // categories is no longer needed here as it's in the header, 
+    // but we can keep it if we want to render something else, 
+    // though the requirement was to remove CategoryFilter.
+    // I'll keep the interface cleaner and just accept articles.
+    // But app/page.tsx passes categories, so I should keep it to avoid type error or update page.tsx.
+    // I'll keep it but unused to minimize changes to page.tsx, or better yet, remove it from page.tsx too.
+    // Let's stick to the minimal change: ignore it or remove usage.
     categories: string[];
 }
 
-export function HomePageClient({ articles, categories }: HomePageClientProps) {
-    const [activeCategory, setActiveCategory] = useState<string | null>(null);
-    const [searchQuery, setSearchQuery] = useState("");
+function HomePageContent({ articles }: { articles: Article[] }) {
+    const searchParams = useSearchParams();
+    const activeCategory = searchParams.get("category");
+    const searchQuery = searchParams.get("q") || "";
+
     const [currentPage, setCurrentPage] = useState(1);
 
     // Reset pagination when category or search changes
@@ -88,24 +92,27 @@ export function HomePageClient({ articles, categories }: HomePageClientProps) {
                 </p>
             </section>
 
-            {/* Controls Section: Filter & Search */}
-            <div className="flex flex-col md:flex-row gap-4 mb-8 justify-between items-start md:items-center">
-                <CategoryFilter
-                    categories={categories}
-                    activeCategory={activeCategory}
-                    onCategoryChange={setActiveCategory}
-                />
-
-                <div className="relative w-full md:w-64 shrink-0">
-                    <Search className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground pointer-events-none" />
-                    <Input
-                        placeholder="搜索文章..."
-                        className="pl-8"
-                        value={searchQuery}
-                        onChange={(e) => setSearchQuery(e.target.value)}
-                    />
+            {/* Filter Status */}
+            {(activeCategory || searchQuery) && (
+                <div className="mb-8 flex items-center gap-2 text-sm text-muted-foreground animate-in fade-in slide-in-from-top-2">
+                    <span>当前视图:</span>
+                    {activeCategory && (
+                        <span className="bg-secondary px-2 py-1 rounded-md text-secondary-foreground font-medium">
+                            分类 · {activeCategory}
+                        </span>
+                    )}
+                    {searchQuery && (
+                        <span className="bg-secondary px-2 py-1 rounded-md text-secondary-foreground font-medium">
+                            搜索 · {searchQuery}
+                        </span>
+                    )}
+                    {(activeCategory || searchQuery) && (
+                        <a href="/" className="ml-auto text-xs hover:underline decoration-muted-foreground/50">
+                            清除筛选
+                        </a>
+                    )}
                 </div>
-            </div>
+            )}
 
             {/* Article List */}
             <ArticleList articles={paginatedArticles} />
@@ -144,5 +151,13 @@ export function HomePageClient({ articles, categories }: HomePageClientProps) {
                 </div>
             )}
         </PageContainer>
+    );
+}
+
+export function HomePageClient({ articles, categories }: HomePageClientProps) {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <HomePageContent articles={articles} />
+        </Suspense>
     );
 }

@@ -39,10 +39,16 @@ export function HomePageClient({ articles, categories }: HomePageClientProps) {
 
     const filteredArticles = articles.filter((article) => {
         const matchesCategory = activeCategory ? article.category === activeCategory : true;
+
+        // Safety check: Ensure fields are strings before calling toLowerCase
+        const title = String(article.title || "").toLowerCase();
+        const description = String(article.description || "").toLowerCase();
+        const query = searchQuery.toLowerCase();
+
         const matchesSearch = searchQuery
-            ? (article.title || "").toLowerCase().includes(searchQuery.toLowerCase()) ||
-            (article.description || "").toLowerCase().includes(searchQuery.toLowerCase())
+            ? title.includes(query) || description.includes(query)
             : true;
+
         return matchesCategory && matchesSearch;
     });
 

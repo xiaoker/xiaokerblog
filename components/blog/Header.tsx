@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { ThemeToggle } from "./ThemeToggle";
 import { Search } from "lucide-react";
@@ -27,12 +29,9 @@ export function Header({ categories, onSearchClick }: HeaderProps) {
   return (
     <header className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="content-container-wide">
-        <div className="flex h-16 items-center justify-between relative">
-          {/* Left: Spacer */}
-          <div className="w-20"></div>
-
-          {/* Center: Navigation */}
-          <nav className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 hidden md:flex items-center gap-8">
+        <div className="flex h-16 items-center">
+          {/* Navigation - Left Aligned */}
+          <nav className="hidden md:flex items-center gap-6">
             <Link
               href="/"
               className={cn(
@@ -71,8 +70,8 @@ export function Header({ categories, onSearchClick }: HeaderProps) {
             </Link>
           </nav>
 
-          {/* Right: Actions */}
-          <div className="flex items-center gap-2 shrink-0">
+          {/* Actions - Placed closer to Nav (Gap of 4 via flex container of header, or margin-left) */}
+          <div className="hidden md:flex items-center gap-2 ml-6 pl-4 border-l border-border/50">
             <button
               onClick={onSearchClick}
               className="p-2 rounded-md hover:bg-accent hover:text-accent-foreground transition-colors"
@@ -82,9 +81,24 @@ export function Header({ categories, onSearchClick }: HeaderProps) {
             </button>
             <ThemeToggle />
           </div>
+
+          {/* Mobile Controls (Right aligned on mobile) */}
+          <div className="md:hidden flex flex-1 items-center justify-between">
+            <span className="font-bold">xiaoker</span>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={onSearchClick}
+                className="p-2 rounded-md hover:bg-accent hover:text-accent-foreground transition-colors"
+                aria-label="搜索"
+              >
+                <Search className="h-4 w-4" />
+              </button>
+              <ThemeToggle />
+            </div>
+          </div>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Navigation Scrollbar */}
         <div className="md:hidden py-2 overflow-x-auto no-scrollbar mask-gradient-right flex items-center gap-6">
           <Link
             href="/"

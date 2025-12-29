@@ -14,7 +14,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
     title: '啸傲的博客-好奇心的自然选择',
-    description: '我在这里分享思考、投资与生活',
+    description: '我在这里记录思考、投资与生活',
 }
 
 export default function RootLayout({

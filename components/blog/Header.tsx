@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { ThemeToggle } from "./ThemeToggle";
 import { Search } from "lucide-react";
+import { usePathname, useSearchParams } from "next/navigation";
+import { cn } from "@/lib/utils";
 
 interface HeaderProps {
   categories: string[];
@@ -8,24 +10,37 @@ interface HeaderProps {
 }
 
 export function Header({ categories, onSearchClick }: HeaderProps) {
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const currentCategory = searchParams?.get("category");
+
+  const isActive = (path: string, category?: string) => {
+    if (category) {
+      return currentCategory === category;
+    }
+    if (path === "/") {
+      return pathname === "/" && !currentCategory;
+    }
+    return pathname === path;
+  };
+
   return (
     <header className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="content-container-wide">
         <div className="flex h-16 items-center justify-between relative">
-          {/* Left: Empty or Spacer if needed, but flex justify-between handles spacing. 
-                        Actually dealing with justify-between:
-                        If left is empty, center is absolute, right is flex.
-                        Visual balance might be slightly off if right has width but left has 0.
-                        But since center is ABSOLUTE centered, it ignores siblings.
-                        So we just need to ensure the right side is there.
-                    */}
-          <div className="w-20"></div> {/* Spacer to balance layout if needed or just empty div */}
+          {/* Left: Spacer */}
+          <div className="w-20"></div>
 
-          {/* Center: Navigation - Positioned absolutely to be perfectly centered */}
+          {/* Center: Navigation */}
           <nav className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 hidden md:flex items-center gap-8">
             <Link
               href="/"
-              className="text-base font-bold text-foreground hover:text-foreground/80 transition-colors"
+              className={cn(
+                "text-base transition-colors",
+                isActive("/")
+                  ? "font-bold text-foreground"
+                  : "font-medium text-muted-foreground hover:text-foreground"
+              )}
             >
               首页
             </Link>
@@ -33,26 +48,28 @@ export function Header({ categories, onSearchClick }: HeaderProps) {
               <Link
                 key={cat}
                 href={`/?category=${cat}`}
-                className="text-base font-medium text-muted-foreground hover:text-foreground transition-colors"
+                className={cn(
+                  "text-base transition-colors",
+                  isActive("/", cat)
+                    ? "font-bold text-foreground"
+                    : "font-medium text-muted-foreground hover:text-foreground"
+                )}
               >
                 {cat}
               </Link>
             ))}
-            <Link href="/about" className="text-base font-medium text-muted-foreground hover:text-foreground transition-colors">
+            <Link
+              href="/about"
+              className={cn(
+                "text-base transition-colors",
+                isActive("/about")
+                  ? "font-bold text-foreground"
+                  : "font-medium text-muted-foreground hover:text-foreground"
+              )}
+            >
               关于
             </Link>
           </nav>
-
-          {/* Mobile Nav Fallback (Optional, simplistic for now if screen is small) */}
-          {/* For now, on mobile, we might just hide the centered nav or let it collapse. 
-              Given the simplicity, I'll keep the centered nav hidden on mobile and maybe show a horizontal scroll or just stack.
-              Actually, let's keep it simple: visible on md+, maybe just flow normally on small screens.
-              Let's try a responsive approach: 
-              On desktop: Absolute center.
-              On mobile: Just hide or use the old scroll behavior? 
-              The user didn't ask for mobile specifics, but for a "centered look". 
-              I'll use the absolute center for desktop to ensure perfect symmetry.
-          */}
 
           {/* Right: Actions */}
           <div className="flex items-center gap-2 shrink-0">
@@ -67,11 +84,16 @@ export function Header({ categories, onSearchClick }: HeaderProps) {
           </div>
         </div>
 
-        {/* Mobile Navigation (Visible only on small screens) */}
+        {/* Mobile Navigation */}
         <div className="md:hidden py-2 overflow-x-auto no-scrollbar mask-gradient-right flex items-center gap-6">
           <Link
             href="/"
-            className="text-sm font-bold text-foreground hover:text-foreground/80 transition-colors whitespace-nowrap"
+            className={cn(
+              "text-sm transition-colors whitespace-nowrap",
+              isActive("/")
+                ? "font-bold text-foreground"
+                : "font-medium text-muted-foreground hover:text-foreground"
+            )}
           >
             首页
           </Link>
@@ -79,12 +101,25 @@ export function Header({ categories, onSearchClick }: HeaderProps) {
             <Link
               key={cat}
               href={`/?category=${cat}`}
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap"
+              className={cn(
+                "text-sm transition-colors whitespace-nowrap",
+                isActive("/", cat)
+                  ? "font-bold text-foreground"
+                  : "font-medium text-muted-foreground hover:text-foreground"
+              )}
             >
               {cat}
             </Link>
           ))}
-          <Link href="/about" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap">
+          <Link
+            href="/about"
+            className={cn(
+              "text-sm transition-colors whitespace-nowrap",
+              isActive("/about")
+                ? "font-bold text-foreground"
+                : "font-medium text-muted-foreground hover:text-foreground"
+            )}
+          >
             关于
           </Link>
         </div>

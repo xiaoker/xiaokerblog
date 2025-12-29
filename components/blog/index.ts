@@ -1,6 +1,6 @@
 export { Header } from "./Header";
 export { Footer } from "./Footer";
-export { Layout } from "./Layout";
+
 export { PageContainer } from "./PageContainer";
 export { ThemeToggle } from "./ThemeToggle";
 export { SearchDialog } from "./SearchDialog";

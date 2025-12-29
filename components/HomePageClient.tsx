@@ -1,3 +1,5 @@
+"use client"
+
 import { useState, useEffect } from "react";
 import { PageContainer } from "@/components/blog/PageContainer";
 import { ArticleList } from "@/components/blog/ArticleList";

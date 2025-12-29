@@ -28,57 +28,64 @@ export function Header({ categories, onSearchClick }: HeaderProps) {
 
   return (
     <header className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="content-container-wide">
-        <div className="flex h-16 items-center">
-          {/* Navigation - Left Aligned */}
-          <nav className="hidden md:flex items-center gap-6">
-            <Link
-              href="/"
-              className={cn(
-                "text-base transition-colors",
-                isActive("/")
-                  ? "font-bold text-foreground"
-                  : "font-medium text-muted-foreground hover:text-foreground"
-              )}
-            >
-              首页
-            </Link>
-            {categories.map((cat) => (
+      {/* Changed from content-container-wide to content-container to match PageContainer alignment */}
+      <div className="content-container">
+        <div className="flex h-16 items-center justify-between">
+
+          {/* Left Group: Navigation + Search */}
+          <div className="flex items-center">
+            {/* Navigation */}
+            <nav className="hidden md:flex items-center gap-6">
               <Link
-                key={cat}
-                href={`/?category=${cat}`}
+                href="/"
                 className={cn(
                   "text-base transition-colors",
-                  isActive("/", cat)
+                  isActive("/")
                     ? "font-bold text-foreground"
                     : "font-medium text-muted-foreground hover:text-foreground"
                 )}
               >
-                {cat}
+                首页
               </Link>
-            ))}
-            <Link
-              href="/about"
-              className={cn(
-                "text-base transition-colors",
-                isActive("/about")
-                  ? "font-bold text-foreground"
-                  : "font-medium text-muted-foreground hover:text-foreground"
-              )}
-            >
-              关于
-            </Link>
-          </nav>
+              {categories.map((cat) => (
+                <Link
+                  key={cat}
+                  href={`/?category=${cat}`}
+                  className={cn(
+                    "text-base transition-colors",
+                    isActive("/", cat)
+                      ? "font-bold text-foreground"
+                      : "font-medium text-muted-foreground hover:text-foreground"
+                  )}
+                >
+                  {cat}
+                </Link>
+              ))}
+              <Link
+                href="/about"
+                className={cn(
+                  "text-base transition-colors",
+                  isActive("/about")
+                    ? "font-bold text-foreground"
+                    : "font-medium text-muted-foreground hover:text-foreground"
+                )}
+              >
+                关于
+              </Link>
+            </nav>
 
-          {/* Actions - Placed closer to Nav (Gap of 4 via flex container of header, or margin-left) */}
-          <div className="hidden md:flex items-center gap-2 ml-6 pl-4 border-l border-border/50">
+            {/* Search Button: Placed closer to Nav (ml-6) */}
             <button
               onClick={onSearchClick}
-              className="p-2 rounded-md hover:bg-accent hover:text-accent-foreground transition-colors"
+              className="hidden md:flex p-2 rounded-md hover:bg-accent hover:text-accent-foreground transition-colors ml-4 text-muted-foreground"
               aria-label="搜索"
             >
               <Search className="h-4 w-4" />
             </button>
+          </div>
+
+          {/* Right Group: Theme Toggle */}
+          <div className="hidden md:flex items-center shrink-0">
             <ThemeToggle />
           </div>
 

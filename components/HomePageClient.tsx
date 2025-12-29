@@ -87,7 +87,7 @@ function HomePageContent({ articles }: { articles: Article[] }) {
                     </h1>
                 </div>
                 <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl">
-                    你好，我是啸傲。我在这里写好奇心驱动的思考，不限于投资、商业、科技、成长和生活。探索精神自由和财富自由，这是我好奇心的自然选择。
+                    你好，我是啸傲。探索精神自由和财富自由，这是我好奇心的自然选择。我在这里记录 投资、商业、科技、成长等方面的思考。
                 </p>
             </section>
 

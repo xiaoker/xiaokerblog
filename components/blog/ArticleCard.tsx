@@ -34,7 +34,7 @@ export function ArticleCard({ article, className }: ArticleCardProps) {
         </h2>
 
         {/* Excerpt */}
-        <p className="text-muted-foreground leading-relaxed line-clamp-3">
+        <p className="text-muted-foreground leading-relaxed line-clamp-2">
           {article.description}
         </p>
       </Link>

@@ -83,12 +83,11 @@ function HomePageContent({ articles }: { articles: Article[] }) {
                         <AvatarFallback>XK</AvatarFallback>
                     </Avatar>
                     <h1 className="text-3xl md:text-4xl font-bold tracking-tight">
-                        你好，我是 xiaoker
+                        啸傲的兔子洞
                     </h1>
                 </div>
                 <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl">
-                    这是我的个人博客，记录关于技术、设计与生活的思考。
-                    在这里，我分享我的学习笔记、项目经验和一些随想。
+                    你好，我是啸傲。我在这里写好奇心驱动的思考，不限于投资、商业、科技、成长和生活。探索精神自由和财富自由，这是我好奇心的自然选择。
                 </p>
             </section>
 

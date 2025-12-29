@@ -24,7 +24,7 @@ export function Header({ categories, onSearchClick }: HeaderProps) {
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap"
+                className="text-base font-medium text-muted-foreground hover:text-foreground transition-colors whitespace-nowrap"
               >
                 {item.label}
               </Link>

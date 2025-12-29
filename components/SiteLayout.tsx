@@ -1,6 +1,6 @@
 'use client'
 
-import { ReactNode, useState } from "react";
+import { ReactNode, useState, Suspense } from "react";
 import { Header } from "./blog/Header";
 import { Footer } from "./blog/Footer";
 import { SearchDialog } from "./blog/SearchDialog";
@@ -15,7 +15,9 @@ export function SiteLayout({ children, categories }: LayoutProps) {
 
     return (
         <div className="min-h-screen flex flex-col">
-            <Header categories={categories} onSearchClick={() => setSearchOpen(true)} />
+            <Suspense fallback={<div className="h-16 w-full" />}>
+                <Header categories={categories} onSearchClick={() => setSearchOpen(true)} />
+            </Suspense>
             <div className="flex-1">{children}</div>
             <Footer />
             <SearchDialog open={searchOpen} onOpenChange={setSearchOpen} />

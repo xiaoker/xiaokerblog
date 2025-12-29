@@ -113,7 +113,9 @@
   }
 
   html {
-    scroll-behavior: smooth;
+    /* scroll-behavior: smooth; <- Disabled to prevent conflict with Next.js navigation */
+    scroll-padding-top: 5rem;
+    /* Header height (4rem) + buffer */
   }
 
   body {
@@ -122,12 +124,18 @@
   }
 
   /* Typography base */
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-heading tracking-tight;
   }
 }
 
 @layer components {
+
   /* Prose styles for article content */
   .prose {
     @apply text-prose-body leading-relaxed;
@@ -154,7 +162,8 @@
     @apply text-prose-links underline underline-offset-4 hover:opacity-80 transition-opacity;
   }
 
-  .prose ul, .prose ol {
+  .prose ul,
+  .prose ol {
     @apply mb-6 pl-6;
   }
 
@@ -207,6 +216,7 @@
 }
 
 @layer utilities {
+
   /* Text colors using design tokens */
   .text-prose-body {
     color: hsl(var(--prose-body));

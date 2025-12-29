@@ -15,7 +15,12 @@ import {
     PaginationPrevious,
 } from "@/components/ui/pagination";
 
-const POSTS_PER_PAGE = 3;
+import { Search } from "lucide-react";
+import { Input } from "@/components/ui/input";
+
+// ... (imports remain)
+
+const POSTS_PER_PAGE = 5;
 
 interface HomePageClientProps {
     articles: Article[];
@@ -24,16 +29,22 @@ interface HomePageClientProps {
 
 export function HomePageClient({ articles, categories }: HomePageClientProps) {
     const [activeCategory, setActiveCategory] = useState<string | null>(null);
+    const [searchQuery, setSearchQuery] = useState("");
     const [currentPage, setCurrentPage] = useState(1);
 
-    // Reset pagination when category changes
+    // Reset pagination when category or search changes
     useEffect(() => {
         setCurrentPage(1);
-    }, [activeCategory]);
+    }, [activeCategory, searchQuery]);
 
-    const filteredArticles = activeCategory
-        ? articles.filter((a) => a.category === activeCategory)
-        : articles;
+    const filteredArticles = articles.filter((article) => {
+        const matchesCategory = activeCategory ? article.category === activeCategory : true;
+        const matchesSearch = searchQuery
+            ? article.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            article.description.toLowerCase().includes(searchQuery.toLowerCase())
+            : true;
+        return matchesCategory && matchesSearch;
+    });
 
     const totalPages = Math.ceil(filteredArticles.length / POSTS_PER_PAGE);
     const paginatedArticles = filteredArticles.slice(
@@ -71,12 +82,24 @@ export function HomePageClient({ articles, categories }: HomePageClientProps) {
                 </p>
             </section>
 
-            {/* Category Filter */}
-            <CategoryFilter
-                categories={categories}
-                activeCategory={activeCategory}
-                onCategoryChange={setActiveCategory}
-            />
+            {/* Controls Section: Filter & Search */}
+            <div className="flex flex-col md:flex-row gap-4 mb-8 justify-between items-start md:items-center">
+                <CategoryFilter
+                    categories={categories}
+                    activeCategory={activeCategory}
+                    onCategoryChange={setActiveCategory}
+                />
+
+                <div className="relative w-full md:w-64 shrink-0">
+                    <Search className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
+                    <Input
+                        placeholder="搜索文章..."
+                        className="pl-8"
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                    />
+                </div>
+            </div>
 
             {/* Article List */}
             <ArticleList articles={paginatedArticles} />

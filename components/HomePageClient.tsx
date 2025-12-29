@@ -40,8 +40,8 @@ export function HomePageClient({ articles, categories }: HomePageClientProps) {
     const filteredArticles = articles.filter((article) => {
         const matchesCategory = activeCategory ? article.category === activeCategory : true;
         const matchesSearch = searchQuery
-            ? article.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            article.description.toLowerCase().includes(searchQuery.toLowerCase())
+            ? (article.title || "").toLowerCase().includes(searchQuery.toLowerCase()) ||
+            (article.description || "").toLowerCase().includes(searchQuery.toLowerCase())
             : true;
         return matchesCategory && matchesSearch;
     });
@@ -91,7 +91,7 @@ export function HomePageClient({ articles, categories }: HomePageClientProps) {
                 />
 
                 <div className="relative w-full md:w-64 shrink-0">
-                    <Search className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
+                    <Search className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground pointer-events-none" />
                     <Input
                         placeholder="搜索文章..."
                         className="pl-8"

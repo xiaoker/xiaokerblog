@@ -12,13 +12,23 @@ export function Header({ categories, onSearchClick }: HeaderProps) {
     <header className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="content-container-wide">
         <div className="flex h-16 items-center justify-between relative">
-          {/* Left: Brand */}
-          <Link href="/" className="font-bold text-xl tracking-tight text-foreground/90 hover:text-foreground transition-colors shrink-0">
-            xiaoker
-          </Link>
+          {/* Left: Empty or Spacer if needed, but flex justify-between handles spacing. 
+                        Actually dealing with justify-between:
+                        If left is empty, center is absolute, right is flex.
+                        Visual balance might be slightly off if right has width but left has 0.
+                        But since center is ABSOLUTE centered, it ignores siblings.
+                        So we just need to ensure the right side is there.
+                    */}
+          <div className="w-20"></div> {/* Spacer to balance layout if needed or just empty div */}
 
           {/* Center: Navigation - Positioned absolutely to be perfectly centered */}
           <nav className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 hidden md:flex items-center gap-8">
+            <Link
+              href="/"
+              className="text-base font-bold text-foreground hover:text-foreground/80 transition-colors"
+            >
+              首页
+            </Link>
             {categories.map((cat) => (
               <Link
                 key={cat}
@@ -59,6 +69,12 @@ export function Header({ categories, onSearchClick }: HeaderProps) {
 
         {/* Mobile Navigation (Visible only on small screens) */}
         <div className="md:hidden py-2 overflow-x-auto no-scrollbar mask-gradient-right flex items-center gap-6">
+          <Link
+            href="/"
+            className="text-sm font-bold text-foreground hover:text-foreground/80 transition-colors whitespace-nowrap"
+          >
+            首页
+          </Link>
           {categories.map((cat) => (
             <Link
               key={cat}

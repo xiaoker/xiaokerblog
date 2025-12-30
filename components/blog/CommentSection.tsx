@@ -4,17 +4,10 @@ import Giscus from "@giscus/react";
 import { useTheme } from "next-themes";
 
 export function CommentSection() {
-  const { theme } = useTheme();
-
-  console.log('Giscus Config Debug:', {
-    repo: process.env.NEXT_PUBLIC_GISCUS_REPO,
-    repoId: process.env.NEXT_PUBLIC_GISCUS_REPO_ID,
-    category: process.env.NEXT_PUBLIC_GISCUS_CATEGORY,
-    categoryId: process.env.NEXT_PUBLIC_GISCUS_CATEGORY_ID
-  });
+  const { resolvedTheme } = useTheme();
 
   return (
-    <section className="mt-16 pt-8 border-t border-border">
+    <section className="mt-16 pt-8">
       <h3 className="text-xl font-semibold mb-6">评论</h3>
       <Giscus
         id="comments"
@@ -26,7 +19,7 @@ export function CommentSection() {
         reactionsEnabled="1"
         emitMetadata="0"
         inputPosition="top"
-        theme={theme === "dark" ? "transparent_dark" : "light"}
+        theme={resolvedTheme === "dark" ? "transparent_dark" : "light"}
         lang="zh-CN"
         loading="lazy"
       />

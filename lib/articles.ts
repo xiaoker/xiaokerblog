@@ -10,7 +10,7 @@ export interface Article {
   description: string
   date: string
   category: string
-  readTime: string
+
   tags: string[]
 }
 

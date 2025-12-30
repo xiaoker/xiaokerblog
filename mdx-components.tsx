@@ -47,11 +47,19 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
                 {children}
             </pre>
         ),
-        a: ({ href, children }) => (
-            <a href={href} className="text-primary underline underline-offset-4 hover:text-primary/80">
-                {children}
-            </a>
-        ),
+        a: ({ href, children }) => {
+            const isExternal = href?.startsWith('http') || href?.startsWith('https');
+            const props = isExternal ? {
+                target: "_blank",
+                rel: "nofollow noopener noreferrer"
+            } : {};
+
+            return (
+                <a href={href} className="text-primary underline underline-offset-4 hover:text-primary/80" {...props}>
+                    {children}
+                </a>
+            )
+        },
         ...components,
     }
 }

@@ -87,7 +87,7 @@ function HomePageContent({ articles }: { articles: Article[] }) {
                     </h1>
                 </div>
                 <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl">
-                    你好，我是啸傲。我跟随好奇心的自然选择，在这里记录关于投资、商业、科技、成长等方面的思考，欢迎交流。
+                    你好，我是啸傲。我跟随好奇心的自然选择，在这里记录关于投资、科技、成长等方面的思考，欢迎交流。
                 </p>
             </section>
 

@@ -1,5 +1,5 @@
 import { PageContainer } from "@/components/blog/PageContainer";
-import { Github, Twitter, Mail } from "lucide-react";
+import { Github, Twitter } from "lucide-react";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -9,7 +9,6 @@ export const metadata: Metadata = {
 const socialLinks = [
     { icon: Github, href: "https://github.com/xiaoker", label: "GitHub" },
     { icon: Twitter, href: "https://x.com/xiaoker", label: "Twitter" },
-    { icon: Mail, href: "mailto:hello@xiaoker.com", label: "Email" },
 ];
 
 export default function AboutPage() {

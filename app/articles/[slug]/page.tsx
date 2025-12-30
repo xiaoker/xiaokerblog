@@ -33,8 +33,16 @@ export async function generateMetadata({ params }: Props) {
     return {
         title: article.title,
         description: article.description,
+        openGraph: {
+            title: article.title,
+            description: article.description,
+            type: 'article',
+            publishedTime: article.date,
+            authors: ['啸傲'],
+        },
     }
 }
+
 
 export default async function ArticlePage({ params }: Props) {
     const resolvedParams = await params;
@@ -62,6 +70,28 @@ export default async function ArticlePage({ params }: Props) {
                         title={article.title}
                         date={article.date}
                         category={article.category}
+                    />
+
+
+                    <script
+                        type="application/ld+json"
+                        dangerouslySetInnerHTML={{
+                            __html: JSON.stringify({
+                                '@context': 'https://schema.org',
+                                '@type': 'BlogPosting',
+                                headline: article.title,
+                                datePublished: article.date,
+                                dateModified: article.date,
+                                description: article.description,
+                                image: [], // Add cover image if available
+                                url: `https://xiaoker.com/articles/${article.slug}`,
+                                author: {
+                                    '@type': 'Person',
+                                    name: '啸傲',
+                                    url: 'https://xiaoker.com/about'
+                                },
+                            })
+                        }}
                     />
 
                     <div className="prose prose-neutral dark:prose-invert max-w-none mt-8">

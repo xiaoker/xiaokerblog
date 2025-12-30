@@ -14,8 +14,35 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-    title: '啸傲的博客-好奇心的自然选择',
-    description: '我在这里记录思考、投资与生活',
+    metadataBase: new URL('https://xiaoker.com'),
+    title: {
+        default: '啸傲的博客-好奇心的自然选择',
+        template: '%s | 啸傲的博客'
+    },
+    description: '我在这里记录关于投资、科技、成长等方面的思考，探索精神自由和财富自由。',
+    openGraph: {
+        title: '啸傲的博客-好奇心的自然选择',
+        description: '我在这里记录关于投资、科技、成长等方面的思考。',
+        url: 'https://xiaoker.com',
+        siteName: '啸傲的博客',
+        locale: 'zh_CN',
+        type: 'website',
+    },
+    robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+            index: true,
+            follow: true,
+            'max-video-preview': -1,
+            'max-image-preview': 'large',
+            'max-snippet': -1,
+        },
+    },
+    twitter: {
+        title: '啸傲的博客',
+        card: 'summary_large_image',
+    },
 }
 
 export default function RootLayout({

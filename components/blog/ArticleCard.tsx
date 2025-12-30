@@ -22,10 +22,6 @@ export function ArticleCard({ article, className }: ArticleCardProps) {
         {/* Meta */}
         <div className="flex items-center gap-3 text-sm text-muted-foreground">
           <time dateTime={article.date}>{article.date}</time>
-          <span>·</span>
-          <span>{article.readTime}</span>
-          <span>·</span>
-          <span className="text-foreground/70">{article.category}</span>
         </div>
 
         {/* Title */}

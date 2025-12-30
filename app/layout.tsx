@@ -43,6 +43,11 @@ export const metadata: Metadata = {
         title: '啸傲的博客',
         card: 'summary_large_image',
     },
+    alternates: {
+        types: {
+            'application/rss+xml': '/feed.xml',
+        },
+    },
 }
 
 export default function RootLayout({

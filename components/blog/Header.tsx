@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { ThemeToggle } from "./ThemeToggle";
-import { Search } from "lucide-react";
+import { Search, Rss } from "lucide-react";
 import { usePathname, useSearchParams } from "next/navigation";
 import { cn } from "@/lib/utils";
 
@@ -89,6 +89,16 @@ export function Header({ categories, onSearchClick }: HeaderProps) {
           >
             <Search className="h-4 w-4" />
           </button>
+
+          <Link
+            href="/feed.xml"
+            target="_blank"
+            className="p-2 rounded-md hover:bg-accent hover:text-accent-foreground transition-colors text-muted-foreground"
+            aria-label="RSS 订阅"
+          >
+            <Rss className="h-4 w-4" />
+          </Link>
+
           {/* Vertical separator for subtle grouping */}
           <div className="h-4 w-[1px] bg-border/60" />
           <ThemeToggle />
@@ -105,6 +115,14 @@ export function Header({ categories, onSearchClick }: HeaderProps) {
             >
               <Search className="h-4 w-4" />
             </button>
+            <Link
+              href="/feed.xml"
+              target="_blank"
+              className="p-2 rounded-md hover:bg-accent hover:text-accent-foreground transition-colors"
+              aria-label="RSS 订阅"
+            >
+              <Rss className="h-4 w-4" />
+            </Link>
             <ThemeToggle />
           </div>
         </div>

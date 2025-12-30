@@ -4,5 +4,8 @@
   "/about/page": "app/about/page.js",
   "/articles/[slug]/page": "app/articles/[slug]/page.js",
   "/articles/page": "app/articles/page.js",
-  "/page": "app/page.js"
+  "/feed.xml/route": "app/feed.xml/route.js",
+  "/page": "app/page.js",
+  "/robots.txt/route": "app/robots.txt/route.js",
+  "/sitemap.xml/route": "app/sitemap.xml/route.js"
 }

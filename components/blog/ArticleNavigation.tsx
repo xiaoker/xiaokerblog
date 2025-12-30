@@ -13,11 +13,11 @@ interface ArticleNavigationProps {
 
 export function ArticleNavigation({ prev, next }: ArticleNavigationProps) {
   return (
-    <nav className="flex flex-col sm:flex-row gap-4 mt-12 pt-8 border-t border-border">
+    <nav className="flex flex-col sm:flex-row gap-4 mt-12 pt-8">
       {prev ? (
         <Link
           href={`/articles/${prev.slug}`}
-          className="flex-1 group p-4 rounded-lg border border-border hover:bg-secondary/50 transition-colors"
+          className="flex-1 group p-4 rounded-lg bg-secondary/30 hover:bg-secondary/80 transition-colors"
         >
           <div className="flex items-center gap-2 text-sm text-muted-foreground mb-1">
             <ChevronLeft className="h-4 w-4" />
@@ -34,7 +34,7 @@ export function ArticleNavigation({ prev, next }: ArticleNavigationProps) {
       {next ? (
         <Link
           href={`/articles/${next.slug}`}
-          className="flex-1 group p-4 rounded-lg border border-border hover:bg-secondary/50 transition-colors text-right"
+          className="flex-1 group p-4 rounded-lg bg-secondary/30 hover:bg-secondary/80 transition-colors text-right"
         >
           <div className="flex items-center justify-end gap-2 text-sm text-muted-foreground mb-1">
             <span>下一篇</span>

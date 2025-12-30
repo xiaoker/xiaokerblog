@@ -16,7 +16,7 @@ export function RelatedArticles({ articles, currentSlug }: RelatedArticlesProps)
   }
 
   return (
-    <section className="mt-12 pt-8 border-t border-border">
+    <section className="mt-12 pt-8">
       <h2 className="text-lg font-semibold mb-4">关联文章</h2>
       <ul className="space-y-2">
         {relatedArticles.map((article) => (

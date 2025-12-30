@@ -1,4 +1,4 @@
-import { Clock, Calendar, Folder } from "lucide-react";
+
 
 interface ArticleHeaderProps {
   title: string;
@@ -18,19 +18,10 @@ export function ArticleHeader({
       <h1 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
         {title}
       </h1>
-      <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
-        <div className="flex items-center gap-1.5">
-          <Calendar className="h-4 w-4" />
-          <time dateTime={date}>{date}</time>
-        </div>
-        <div className="flex items-center gap-1.5">
-          <Clock className="h-4 w-4" />
-          <span>{readingTime}</span>
-        </div>
-        <div className="flex items-center gap-1.5">
-          <Folder className="h-4 w-4" />
-          <span>{category}</span>
-        </div>
+      <div className="flex flex-wrap items-center gap-6 text-sm text-muted-foreground">
+        <time dateTime={date}>{date}</time>
+        <span>{readingTime}</span>
+        <span>{category}</span>
       </div>
     </header>
   );

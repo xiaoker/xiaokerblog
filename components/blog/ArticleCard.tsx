@@ -19,11 +19,6 @@ export function ArticleCard({ article, className }: ArticleCardProps) {
   return (
     <article className={cn("group py-6", className)}>
       <Link href={`/articles/${article.slug}`} className="block space-y-3">
-        {/* Meta */}
-        <div className="flex items-center gap-3 text-sm text-muted-foreground">
-          <time dateTime={article.date}>{article.date}</time>
-        </div>
-
         {/* Title */}
         <h2 className="text-xl font-semibold tracking-tight group-hover:text-muted-foreground transition-colors">
           {article.title}
@@ -33,6 +28,11 @@ export function ArticleCard({ article, className }: ArticleCardProps) {
         <p className="text-muted-foreground leading-relaxed line-clamp-2">
           {article.description}
         </p>
+
+        {/* Meta - Moved to bottom */}
+        <div className="flex items-center gap-3 text-sm text-border group-hover:text-muted-foreground transition-colors pt-2">
+          <time dateTime={article.date}>{article.date}</time>
+        </div>
       </Link>
     </article>
   );

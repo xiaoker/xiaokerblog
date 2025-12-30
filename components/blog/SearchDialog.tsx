@@ -30,7 +30,7 @@ export function SearchDialog({ open, onOpenChange }: SearchDialogProps) {
         <form onSubmit={handleSearch} className="flex items-center relative px-4 py-4">
           <Search className="h-5 w-5 text-muted-foreground mr-3 shrink-0" />
           <Input
-            placeholder="搜索文章..."
+            placeholder="输入关键词，回车↩︎ 来搜索"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             className="flex-1 border-0 focus-visible:ring-0 rounded-none p-0 text-lg bg-transparent placeholder:text-muted-foreground/50 h-auto"

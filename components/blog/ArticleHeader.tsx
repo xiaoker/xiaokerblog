@@ -1,16 +1,15 @@
 
+import { formatDate } from "@/lib/utils";
 
 interface ArticleHeaderProps {
   title: string;
   date: string;
-  readingTime: string;
   category: string;
 }
 
 export function ArticleHeader({
   title,
   date,
-  readingTime,
   category,
 }: ArticleHeaderProps) {
   return (
@@ -19,8 +18,7 @@ export function ArticleHeader({
         {title}
       </h1>
       <div className="flex flex-wrap items-center gap-6 text-sm text-muted-foreground">
-        <time dateTime={date}>{date}</time>
-        <span>{readingTime}</span>
+        <time dateTime={date}>Published on {formatDate(date)}</time>
         <span>{category}</span>
       </div>
     </header>

@@ -61,7 +61,6 @@ export default async function ArticlePage({ params }: Props) {
                     <ArticleHeader
                         title={article.title}
                         date={article.date}
-                        readingTime={article.readTime}
                         category={article.category}
                     />
 

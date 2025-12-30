@@ -35,7 +35,6 @@ export function getAllArticles(): Article[] {
         description: data.description || data.excerpt || "",
         date: data.date,
         category: data.category,
-        readTime: data.readTime || `${Math.ceil(fileContents.length / 500)} min read`, // Simple estimation: 500 chars/min for Chinese/Mixed content
         tags: data.tags || [],
       }
     })

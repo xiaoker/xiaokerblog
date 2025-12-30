@@ -47,7 +47,18 @@ export function getAllArticles(): Article[] {
 export function getAllCategories(): string[] {
   const articles = getAllArticles()
   const categories = new Set(articles.map((article) => article.category))
-  return Array.from(categories)
+  const order = ["投资", "科技", "成长", "随笔"]
+  return Array.from(categories).sort((a, b) => {
+    const indexA = order.indexOf(a)
+    const indexB = order.indexOf(b)
+    // If both found, sort by index
+    if (indexA !== -1 && indexB !== -1) return indexA - indexB
+    // If one not found, put it at end
+    if (indexA === -1) return 1
+    if (indexB === -1) return -1
+    // If both not found, alphabetical
+    return a.localeCompare(b)
+  })
 }
 
 export function getArticleBySlug(slug: string): Article | undefined {

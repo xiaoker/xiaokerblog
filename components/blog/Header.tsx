@@ -73,7 +73,7 @@ export function Header({ categories, onSearchClick }: HeaderProps) {
                 : "font-medium text-muted-foreground hover:text-foreground"
             )}
           >
-            关于
+            关于我
           </Link>
         </nav>
 
@@ -147,7 +147,7 @@ export function Header({ categories, onSearchClick }: HeaderProps) {
                 : "font-medium text-muted-foreground hover:text-foreground"
             )}
           >
-            关于
+            关于我
           </Link>
         </div>
       </div>

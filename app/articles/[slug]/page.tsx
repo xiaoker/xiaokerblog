@@ -30,7 +30,8 @@ export async function generateMetadata({ params }: Props) {
     const article = getArticleBySlug(resolvedParams.slug)
     if (!article) return {}
 
-    const ogImage = article.cover || '/og-image.png'
+    const ogImagePath = article.cover || '/og-image.png'
+    const ogImageUrl = `https://xiaoker.com${ogImagePath}`
 
     return {
         title: article.title,
@@ -43,7 +44,7 @@ export async function generateMetadata({ params }: Props) {
             authors: ['啸傲'],
             images: [
                 {
-                    url: ogImage,
+                    url: ogImageUrl,
                     width: 1200,
                     height: 630,
                     alt: article.title,
@@ -54,7 +55,7 @@ export async function generateMetadata({ params }: Props) {
             card: 'summary_large_image',
             title: article.title,
             description: article.description,
-            images: [ogImage],
+            images: [ogImageUrl],
         },
     }
 }

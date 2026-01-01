@@ -2,7 +2,6 @@
 
 import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
-import Image from "next/image";
 import { PageContainer } from "@/components/blog/PageContainer";
 import { ArticleList } from "@/components/blog/ArticleList";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -75,15 +74,14 @@ function HomePageContent({ articles }: { articles: Article[] }) {
             {/* Hero Section */}
             <section className="mb-12">
                 <div className="flex items-center gap-4 mb-6">
-                    <div className="relative h-16 w-16 shrink-0 rounded-full overflow-hidden ring-2 ring-border">
-                        <Image
+                    <Avatar className="h-16 w-16 shrink-0 ring-2 ring-border">
+                        <AvatarImage
                             src="/xiaoker-avatar.jpg"
                             alt="啸傲"
-                            fill
                             className="object-cover object-[center_15%]"
-                            priority
                         />
-                    </div>
+                        <AvatarFallback>啸傲</AvatarFallback>
+                    </Avatar>
                     <h1 className="text-3xl md:text-4xl font-bold tracking-tight">
                         啸傲的兔子洞
                     </h1>

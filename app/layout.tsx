@@ -16,17 +16,25 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
     metadataBase: new URL('https://xiaoker.com'),
     title: {
-        default: '啸傲的博客-好奇心的自然选择',
-        template: '%s | 啸傲的博客'
+        default: '啸傲的兔子洞-好奇心的自然选择',
+        template: '%s | 啸傲的兔子洞'
     },
     description: '我在这里记录关于投资、科技、成长等方面的思考，探索精神自由和财富自由。',
     openGraph: {
-        title: '啸傲的博客-好奇心的自然选择',
+        title: '啸傲的兔子洞-好奇心的自然选择',
         description: '我在这里记录关于投资、科技、成长等方面的思考。',
         url: 'https://xiaoker.com',
-        siteName: '啸傲的博客',
+        siteName: '啸傲的兔子洞',
         locale: 'zh_CN',
         type: 'website',
+        images: [
+            {
+                url: '/og-image.png',
+                width: 1200,
+                height: 630,
+                alt: '啸傲的兔子洞',
+            }
+        ],
     },
     robots: {
         index: true,
@@ -40,7 +48,7 @@ export const metadata: Metadata = {
         },
     },
     twitter: {
-        title: '啸傲的博客',
+        title: '啸傲的兔子洞',
         card: 'summary_large_image',
     },
     alternates: {

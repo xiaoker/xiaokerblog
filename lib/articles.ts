@@ -10,7 +10,7 @@ export interface Article {
   description: string
   date: string
   category: string
-
+  cover?: string
   tags: string[]
 }
 
@@ -35,6 +35,7 @@ export function getAllArticles(): Article[] {
         description: data.description || data.excerpt || "",
         date: data.date,
         category: data.category,
+        cover: data.cover,
         tags: data.tags || [],
       }
     })

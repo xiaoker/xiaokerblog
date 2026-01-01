@@ -30,6 +30,8 @@ export async function generateMetadata({ params }: Props) {
     const article = getArticleBySlug(resolvedParams.slug)
     if (!article) return {}
 
+    const ogImage = article.cover || '/og-image.png'
+
     return {
         title: article.title,
         description: article.description,
@@ -39,6 +41,20 @@ export async function generateMetadata({ params }: Props) {
             type: 'article',
             publishedTime: article.date,
             authors: ['啸傲'],
+            images: [
+                {
+                    url: ogImage,
+                    width: 1200,
+                    height: 630,
+                    alt: article.title,
+                }
+            ],
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: article.title,
+            description: article.description,
+            images: [ogImage],
         },
     }
 }

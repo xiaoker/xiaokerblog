@@ -106,7 +106,7 @@ export function Header({ categories, onSearchClick }: HeaderProps) {
 
         {/* Mobile Layout */}
         <div className="md:hidden w-full flex items-center justify-between">
-          <span className="font-bold">啸傲的兔子洞</span>
+          <span className="font-bold">好奇心的自然选择</span>
           <div className="flex items-center gap-2">
             <button
               onClick={onSearchClick}

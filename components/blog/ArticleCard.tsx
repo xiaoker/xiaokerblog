@@ -1,13 +1,6 @@
 import Link from "next/link";
 import { cn, formatDate } from "@/lib/utils";
-
-export interface Article {
-  slug: string;
-  title: string;
-  date: string;
-  description: string;
-  category: string;
-}
+import { Article } from "@/lib/articles";
 
 interface ArticleCardProps {
   article: Article;
@@ -31,6 +24,8 @@ export function ArticleCard({ article, className }: ArticleCardProps) {
         {/* Meta - Moved to bottom */}
         <div className="flex items-center gap-3 text-sm text-border group-hover:text-muted-foreground transition-colors pt-2">
           <time dateTime={article.date}>{formatDate(article.date)}</time>
+          <span>·</span>
+          <span>约 {article.readingTime} 分钟阅读</span>
         </div>
       </Link>
     </article>

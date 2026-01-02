@@ -1,6 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
+import { calculateReadingTime } from './utils'
 
 const articlesDirectory = path.join(process.cwd(), 'content/articles')
 
@@ -12,6 +13,7 @@ export interface Article {
   category: string
   cover?: string
   tags: string[]
+  readingTime: number
 }
 
 export function getAllArticles(): Article[] {
@@ -27,7 +29,7 @@ export function getAllArticles(): Article[] {
       const slug = fileName.replace(/\.mdx$/, '')
       const fullPath = path.join(articlesDirectory, fileName)
       const fileContents = fs.readFileSync(fullPath, 'utf8')
-      const { data } = matter(fileContents)
+      const { data, content } = matter(fileContents)
 
       return {
         slug,
@@ -37,6 +39,7 @@ export function getAllArticles(): Article[] {
         category: data.category,
         cover: data.cover,
         tags: data.tags || [],
+        readingTime: calculateReadingTime(content),
       }
     })
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())

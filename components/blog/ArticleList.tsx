@@ -1,5 +1,4 @@
-import { ArticleCard } from "./ArticleCard";
-import { Article } from "@/lib/articles";
+import { ArticleCard, Article } from "./ArticleCard";
 
 interface ArticleListProps {
   articles: Article[];

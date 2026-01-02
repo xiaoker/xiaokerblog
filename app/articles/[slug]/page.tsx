@@ -87,7 +87,6 @@ export default async function ArticlePage({ params }: Props) {
                         title={article.title}
                         date={article.date}
                         category={article.category}
-                        readingTime={article.readingTime}
                     />
 
 

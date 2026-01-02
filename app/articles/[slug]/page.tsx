@@ -124,8 +124,8 @@ export default async function ArticlePage({ params }: Props) {
                         />
                     </div>
 
-                    <RelatedArticles articles={allArticles} currentSlug={article.slug} />
                     <AuthorCard name="啸傲" bio="跟随好奇心探索自我和世界" avatar="/xiaoker-avatar.jpg" />
+                    <RelatedArticles articles={allArticles} currentSlug={article.slug} />
                     <ArticleNavigation prev={newerArticle} next={olderArticle} />
                     <CommentSection />
                 </article>

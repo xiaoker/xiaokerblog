@@ -45,7 +45,7 @@
     --prose-quote-border: 240 10% 80%;
 
     /* Reading width */
-    --content-width: 720px;
+    --content-width: 768px;
     --content-width-wide: 1280px;
 
     /* Sidebar tokens */
@@ -158,7 +158,7 @@
 
   .prose p {
     @apply mb-6;
-    text-align: left;
+    text-align: justify;
   }
 
   .prose a {

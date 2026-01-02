@@ -66,16 +66,6 @@ export function RelatedArticles({ articles, currentSlug }: RelatedArticlesProps)
               <p className="text-sm text-muted-foreground line-clamp-2">
                 {article.description}
               </p>
-              <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                <span className="px-2 py-0.5 bg-secondary rounded-md">
-                  {article.category}
-                </span>
-                {article.tags && article.tags.length > 0 && (
-                  <span className="text-muted-foreground/60">
-                    {article.tags.slice(0, 2).join(", ")}
-                  </span>
-                )}
-              </div>
             </Link>
           </li>
         ))}

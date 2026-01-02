@@ -156,6 +156,7 @@
 
   .prose p {
     @apply mb-6;
+    text-align: justify;
   }
 
   .prose a {

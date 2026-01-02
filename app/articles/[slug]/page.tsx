@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: Props) {
     const article = getArticleBySlug(resolvedParams.slug)
     if (!article) return {}
 
-    const ogImagePath = article.cover || '/og-image.png'
+    const ogImagePath = article.cover || '/og-image.jpeg'
     const ogImageUrl = `https://xiaoker.com${ogImagePath}`
 
     return {

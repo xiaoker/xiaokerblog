@@ -159,11 +159,6 @@
   .prose p {
     @apply mb-6;
     text-align: justify;
-    color: hsl(240 5% 45%);
-  }
-
-  .dark .prose p {
-    color: hsl(240 5% 65%);
   }
 
   .prose a {

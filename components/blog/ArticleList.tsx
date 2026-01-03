@@ -14,7 +14,7 @@ export function ArticleList({ articles }: ArticleListProps) {
   }
 
   return (
-    <div className="space-y-10">
+    <div className="space-y-12">
       {articles.map((article) => (
         <ArticleCard key={article.slug} article={article} />
       ))}

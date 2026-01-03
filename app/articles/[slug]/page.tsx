@@ -6,6 +6,7 @@ import { ArticleNavigation } from '@/components/blog/ArticleNavigation'
 import { RelatedArticles } from '@/components/blog/RelatedArticles'
 import { CommentSection } from '@/components/blog/CommentSection'
 import { TableOfContents } from '@/components/blog/TableOfContents'
+import { ReadingProgress } from '@/components/blog/ReadingProgress'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import remarkGfm from 'remark-gfm'
 import rehypeSlug from 'rehype-slug'
@@ -80,67 +81,70 @@ export default async function ArticlePage({ params }: Props) {
     const sampleHeadings: { id: string; text: string; level: number }[] = []
 
     return (
-        <div className="content-container relative">
-            <div className="py-8 md:py-12">
-                <article className="min-w-0 w-full">
-                    <ArticleHeader
-                        title={article.title}
-                        date={article.date}
-                        category={article.category}
-                    />
+        <>
+            <ReadingProgress />
+            <div className="content-container relative">
+                <div className="py-8 md:py-12">
+                    <article className="min-w-0 w-full">
+                        <ArticleHeader
+                            title={article.title}
+                            date={article.date}
+                            category={article.category}
+                        />
 
 
-                    <script
-                        type="application/ld+json"
-                        dangerouslySetInnerHTML={{
-                            __html: JSON.stringify({
-                                '@context': 'https://schema.org',
-                                '@type': 'BlogPosting',
-                                headline: article.title,
-                                datePublished: article.date,
-                                dateModified: article.date,
-                                description: article.description,
-                                image: [], // Add cover image if available
-                                url: `https://xiaoker.com/articles/${article.slug}`,
-                                author: {
-                                    '@type': 'Person',
-                                    name: '啸傲',
-                                    url: 'https://xiaoker.com/about'
-                                },
-                            })
-                        }}
-                    />
-
-                    <div className="prose prose-neutral dark:prose-invert max-w-none mt-8">
-                        <MDXRemote
-                            source={content}
-                            components={useMDXComponents({})}
-                            options={{
-                                mdxOptions: {
-                                    remarkPlugins: [remarkGfm],
-                                    rehypePlugins: [rehypeSlug],
-                                }
+                        <script
+                            type="application/ld+json"
+                            dangerouslySetInnerHTML={{
+                                __html: JSON.stringify({
+                                    '@context': 'https://schema.org',
+                                    '@type': 'BlogPosting',
+                                    headline: article.title,
+                                    datePublished: article.date,
+                                    dateModified: article.date,
+                                    description: article.description,
+                                    image: [], // Add cover image if available
+                                    url: `https://xiaoker.com/articles/${article.slug}`,
+                                    author: {
+                                        '@type': 'Person',
+                                        name: '啸傲',
+                                        url: 'https://xiaoker.com/about'
+                                    },
+                                })
                             }}
                         />
-                    </div>
 
-                    <AuthorCard name="啸傲" bio="跟随好奇心探索自我和世界" avatar="/xiaoker-avatar.jpg" />
-                    <RelatedArticles articles={allArticles} currentSlug={article.slug} />
-                    <ArticleNavigation prev={newerArticle} next={olderArticle} />
-                    <CommentSection />
-                </article>
+                        <div className="prose prose-neutral dark:prose-invert max-w-none mt-8">
+                            <MDXRemote
+                                source={content}
+                                components={useMDXComponents({})}
+                                options={{
+                                    mdxOptions: {
+                                        remarkPlugins: [remarkGfm],
+                                        rehypePlugins: [rehypeSlug],
+                                    }
+                                }}
+                            />
+                        </div>
 
-                {/* 
-                  Sidebar: Poised absolutely to the right of the centered content.
-                  Visible only on XL screens (creates a "Medium-like" centered layout with potential sidebar).
-                  grid-area or absolute positioning ensures main column doesn't shift.
-                */}
-                <aside className="hidden xl:block absolute top-0 left-full ml-12 h-full w-64">
-                    <div className="sticky top-24">
-                        <TableOfContents headings={headings} />
-                    </div>
-                </aside>
+                        <AuthorCard name="啸傲" bio="跟随好奇心探索自我和世界" avatar="/xiaoker-avatar.jpg" />
+                        <RelatedArticles articles={allArticles} currentSlug={article.slug} />
+                        <ArticleNavigation prev={newerArticle} next={olderArticle} />
+                        <CommentSection />
+                    </article>
+
+                    {/* 
+                      Sidebar: Poised absolutely to the right of the centered content.
+                      Visible only on XL screens (creates a "Medium-like" centered layout with potential sidebar).
+                      grid-area or absolute positioning ensures main column doesn't shift.
+                    */}
+                    <aside className="hidden xl:block absolute top-0 left-full ml-12 h-full w-64">
+                        <div className="sticky top-24">
+                            <TableOfContents headings={headings} />
+                        </div>
+                    </aside>
+                </div>
             </div>
-        </div>
+        </>
     )
 }

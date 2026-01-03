@@ -20,7 +20,7 @@ export function CommentSection() {
           reactionsEnabled="1"
           emitMetadata="0"
           inputPosition="top"
-          theme={resolvedTheme === "dark" ? "transparent_dark" : "light"}
+          theme={resolvedTheme === "dark" ? "https://xiaoker.com/giscus-custom-dark.css" : "https://xiaoker.com/giscus-custom.css"}
           lang="zh-CN"
           loading="lazy"
         />

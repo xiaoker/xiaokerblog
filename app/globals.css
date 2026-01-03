@@ -233,11 +233,56 @@
     color: hsl(var(--prose-links));
   }
 
+
   .bg-prose-code-bg {
     background-color: hsl(var(--prose-code-bg));
   }
 
+
   .border-prose-quote-border {
     border-color: hsl(var(--prose-quote-border));
+  }
+
+  /* Giscus comment section - ultra clean card style */
+  .giscus-clean .giscus-frame {
+    border: none !important;
+  }
+
+  .giscus-clean iframe {
+    border: none !important;
+  }
+
+  /* Hide all internal borders and dividers in Giscus */
+  .giscus-clean :global(.giscus) {
+    border: none !important;
+  }
+
+  .giscus-clean :global(.giscus-frame) {
+    border: none !important;
+  }
+
+  /* Hide reaction/comment count dividers */
+  .giscus-clean :global(.color-border-muted),
+  .giscus-clean :global(.border-t),
+  .giscus-clean :global(.border-b),
+  .giscus-clean :global(.border-l),
+  .giscus-clean :global(.border-r) {
+    border: none !important;
+  }
+
+  /* Hide tab borders (输入/预览) */
+  .giscus-clean :global(.tabnav-tab) {
+    border: none !important;
+  }
+
+  /* Simplify input area borders */
+  .giscus-clean :global(.form-control),
+  .giscus-clean :global(textarea) {
+    border-color: hsl(var(--border)) !important;
+  }
+
+  /* Hide horizontal rules and separators */
+  .giscus-clean :global(hr) {
+    display: none !important;
   }
 }

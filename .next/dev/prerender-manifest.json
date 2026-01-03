@@ -1,11 +1,1 @@
-{
-  "version": 4,
-  "routes": {},
-  "dynamicRoutes": {},
-  "notFoundRoutes": [],
-  "preview": {
-    "previewModeId": "047f0b3972649985e27ac17d33fedbd4",
-    "previewModeSigningKey": "259b976d6703d6fe3e3acda5c816e797808499e71e5a9066fd33965e0b6d927a",
-    "previewModeEncryptionKey": "a62ff0923ec4266de97210f88baea40d3a3b822e86abacd872a67d8ba5c1f329"
-  }
-}
+{"version":4,"routes":{"/articles/grateful-for-my-curiosity":{},"/articles/building-a-personal-blog":{},"/articles/effective-note-taking":{},"/articles/some-thoughts-on-enhancing-human-intelligence":{},"/articles/why-is-multi-modality-a-new-medium":{},"/articles/built-a-gpts-to-help-everyone-learn-efficiently":{}},"dynamicRoutes":{"/articles/[slug]":{"dataRoute":null,"dataRouteRegex":null,"fallback":null,"fallbackRevalidate":false,"fallbackSourceRoute":"/articles/[slug]","routeRegex":"^\\/articles\\/([^/]+?)(?:\\/)?$","allowHeader":[]}},"notFoundRoutes":[],"preview":{"previewModeId":"f6856060082a76266ea7e37f45b738de","previewModeSigningKey":"c43e0097365505fad37bcba6f080c5d3caf488b77c29c7877dd2eaaeac98dda4","previewModeEncryptionKey":"2c3a00b13a6a40d6a455297818591a90037baf713c4d190bbe2f86cdd14a19dd"}}

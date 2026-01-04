@@ -106,7 +106,11 @@ export function Header({ categories, onSearchClick }: HeaderProps) {
 
         {/* Mobile Layout */}
         <div className="md:hidden w-full flex items-center justify-between">
-          <img src="/logo-icon.png" alt="啸傲的兔子洞" className="h-8 w-8" />
+          <img
+            src="/logo-icon.png"
+            alt="啸傲的兔子洞"
+            className="h-8 w-8 dark:invert"
+          />
           <div className="flex items-center gap-2">
             <button
               onClick={onSearchClick}

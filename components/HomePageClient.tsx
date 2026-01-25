@@ -76,7 +76,7 @@ function HomePageContent({ articles }: { articles: Article[] }) {
                 <div className="flex items-center gap-4 mb-6">
                     <Avatar className="h-16 w-16 shrink-0 ring-2 ring-border">
                         <AvatarImage
-                            src="/xiaoker-avatar.jpg"
+                            src="/images/site/xiaoker-avatar.jpg"
                             alt="啸傲"
                             className="object-cover object-[center_15%]"
                         />

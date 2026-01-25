@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: Props) {
     const article = getArticleBySlug(resolvedParams.slug)
     if (!article) return {}
 
-    const ogImagePath = article.cover || '/og-image.jpeg'
+    const ogImagePath = article.cover || '/images/site/og-image.jpeg'
     const ogImageUrl = `https://xiaoker.com${ogImagePath}`
 
     return {
@@ -124,7 +124,7 @@ export default async function ArticlePage({ params }: Props) {
                         />
                     </div>
 
-                    <AuthorCard name="啸傲" bio="跟随好奇心探索自我和世界" avatar="/xiaoker-avatar.jpg" />
+                    <AuthorCard name="啸傲" bio="跟随好奇心探索自我和世界" avatar="/images/site/xiaoker-avatar.jpg" />
                     <RelatedArticles articles={allArticles} currentSlug={article.slug} />
                     <ArticleNavigation prev={newerArticle} next={olderArticle} />
                     <CommentSection />

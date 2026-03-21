@@ -111,7 +111,7 @@ export default async function ArticlePage({ params }: Props) {
                         }}
                     />
 
-                    <div className="prose prose-neutral dark:prose-invert max-w-none mt-8">
+                    <div className="prose prose-neutral dark:prose-invert max-w-none mt-4">
                         <MDXRemote
                             source={content}
                             components={useMDXComponents({})}

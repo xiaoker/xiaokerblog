@@ -13,7 +13,7 @@ export function ArticleHeader({
   category,
 }: ArticleHeaderProps) {
   return (
-    <header className="mb-10 pb-8">
+    <header className="mb-6">
       <h1 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
         {title}
       </h1>

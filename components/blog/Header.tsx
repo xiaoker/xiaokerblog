@@ -42,7 +42,7 @@ export function Header({ categories, onSearchClick }: HeaderProps) {
           <Link
             href="/"
             className={cn(
-              "text-base transition-colors",
+              "text-base transition-colors whitespace-nowrap",
               isActive("/")
                 ? "font-bold text-foreground"
                 : "font-medium text-muted-foreground hover:text-foreground"
@@ -55,7 +55,7 @@ export function Header({ categories, onSearchClick }: HeaderProps) {
               key={cat}
               href={`/?category=${cat}`}
               className={cn(
-                "text-base transition-colors",
+                "text-base transition-colors whitespace-nowrap",
                 isActive("/", cat)
                   ? "font-bold text-foreground"
                   : "font-medium text-muted-foreground hover:text-foreground"
@@ -67,7 +67,7 @@ export function Header({ categories, onSearchClick }: HeaderProps) {
           <Link
             href="/about"
             className={cn(
-              "text-base transition-colors",
+              "text-base transition-colors whitespace-nowrap",
               isActive("/about")
                 ? "font-bold text-foreground"
                 : "font-medium text-muted-foreground hover:text-foreground"

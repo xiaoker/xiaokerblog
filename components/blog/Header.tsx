@@ -35,7 +35,7 @@ export function Header({ categories, onSearchClick }: HeaderProps) {
                
                This creates a strong vertical alignment line on both left and right sides of the reading column.
             */}
-      <div className="content-container h-16 flex items-center justify-between">
+      <div className="content-container h-16 flex items-center justify-between gap-8">
 
         {/* Left Side: Navigation */}
         <nav className="hidden md:flex items-center gap-6">

@@ -14,6 +14,9 @@ export function ArticleHeader({
   category,
   cover,
 }: ArticleHeaderProps) {
+  // Use .jpg for the display cover if it's the specific generated one
+  const displayCover = cover?.replace(".png", ".jpg");
+
   return (
     <header className="mb-6">
       <h1 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
@@ -24,13 +27,13 @@ export function ArticleHeader({
         <span>{category}</span>
       </div>
       
-      {cover && (
-        <div className="relative aspect-[2.35/1] w-full overflow-hidden rounded-xl mb-8">
+      {displayCover && (
+        <div className="relative aspect-video w-full overflow-hidden rounded-xl mb-8 bg-zinc-900 shadow-lg">
           <Image
-            src={cover}
+            src={displayCover}
             alt={title}
             fill
-            className="object-cover"
+            className="object-cover transition-opacity duration-700 ease-in-out"
             priority
           />
         </div>

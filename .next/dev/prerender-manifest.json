@@ -1,1 +1,11 @@
-{"version":4,"routes":{"/articles/how-to-distinguish-signal-from-noise-in-life":{},"/articles/10x-identity-guiding-principles":{},"/articles/grateful-for-my-curiosity":{},"/articles/building-a-personal-blog":{},"/articles/effective-note-taking":{},"/articles/some-thoughts-on-enhancing-human-intelligence":{},"/articles/why-is-multi-modality-a-new-medium":{},"/articles/built-a-gpts-to-help-everyone-learn-efficiently":{}},"dynamicRoutes":{"/articles/[slug]":{"dataRoute":null,"dataRouteRegex":null,"fallback":null,"fallbackRevalidate":false,"fallbackSourceRoute":"/articles/[slug]","routeRegex":"^\\/articles\\/([^/]+?)(?:\\/)?$","allowHeader":[]}},"notFoundRoutes":[],"preview":{"previewModeId":"f0b5dec36a39d3569a388cda30b507dd","previewModeSigningKey":"41913a2d023fd7168b884d4540245002129ca6f84c819f0aba3fd711c1f4bf01","previewModeEncryptionKey":"707a64828c0182d0b13a515dddaf4731054c27c447c806a360deb68a7e4f39b7"}}
+{
+  "version": 4,
+  "routes": {},
+  "dynamicRoutes": {},
+  "notFoundRoutes": [],
+  "preview": {
+    "previewModeId": "ce3941040fd3894eab4a0ba206d3020f",
+    "previewModeSigningKey": "cabd48c83bf567c83578bc027fda3d308d410fc8998e713fdf9166cac1a857e0",
+    "previewModeEncryptionKey": "dea4335809b5c9fca7df6b80d1902bff4803ab434984d6a0145caa0192a0ba12"
+  }
+}

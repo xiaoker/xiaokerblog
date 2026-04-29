@@ -28,13 +28,12 @@ export function ArticleHeader({
       </div>
       
       {displayCover && (
-        <div className="relative aspect-video w-full overflow-hidden rounded-xl mb-8 bg-zinc-900 shadow-lg">
-          <Image
+        <div className="relative w-full overflow-hidden rounded-xl mb-8 bg-zinc-900 shadow-lg">
+          <img
             src={displayCover}
             alt={title}
-            fill
-            className="object-cover transition-opacity duration-700 ease-in-out"
-            priority
+            className="w-full h-auto block transition-opacity duration-700 ease-in-out"
+            loading="eager"
           />
         </div>
       )}

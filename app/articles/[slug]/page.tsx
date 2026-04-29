@@ -87,6 +87,7 @@ export default async function ArticlePage({ params }: Props) {
                         title={article.title}
                         date={article.date}
                         category={article.category}
+                        cover={article.cover}
                     />
 
 
@@ -100,7 +101,7 @@ export default async function ArticlePage({ params }: Props) {
                                 datePublished: article.date,
                                 dateModified: article.date,
                                 description: article.description,
-                                image: [], // Add cover image if available
+                                image: article.cover ? [`https://xiaoker.com${article.cover}`] : [],
                                 url: `https://xiaoker.com/articles/${article.slug}`,
                                 author: {
                                     '@type': 'Person',
@@ -110,6 +111,13 @@ export default async function ArticlePage({ params }: Props) {
                             })
                         }}
                     />
+
+                    {/* WeChat sharing thumbnail fallback */}
+                    {article.cover && (
+                        <div style={{ display: 'none' }}>
+                            <img src={article.cover} alt={article.title} />
+                        </div>
+                    )}
 
                     <div className="prose prose-neutral dark:prose-invert max-w-none mt-4">
                         <MDXRemote

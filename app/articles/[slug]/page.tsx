@@ -69,6 +69,9 @@ export default async function ArticlePage({ params }: Props) {
     const content = getArticleRawContent(resolvedParams.slug)
     if (!content) return <p>Content not found</p>
 
+    const defaultCover = '/images/site/og-image.jpeg'
+    const displayCover = article.cover || defaultCover
+
     const headings = extractHeadings(content)
 
     const allArticles = getAllArticles()
@@ -87,7 +90,7 @@ export default async function ArticlePage({ params }: Props) {
                         title={article.title}
                         date={article.date}
                         category={article.category}
-                        cover={article.cover}
+                        cover={displayCover}
                     />
 
 
@@ -101,7 +104,7 @@ export default async function ArticlePage({ params }: Props) {
                                 datePublished: article.date,
                                 dateModified: article.date,
                                 description: article.description,
-                                image: article.cover ? [`https://xiaoker.com${article.cover}`] : [],
+                                image: displayCover ? [`https://xiaoker.com${displayCover}`] : [],
                                 url: `https://xiaoker.com/articles/${article.slug}`,
                                 author: {
                                     '@type': 'Person',
@@ -113,9 +116,9 @@ export default async function ArticlePage({ params }: Props) {
                     />
 
                     {/* WeChat sharing thumbnail fallback */}
-                    {article.cover && (
+                    {displayCover && (
                         <div style={{ display: 'none' }}>
-                            <img src={article.cover} alt={article.title} />
+                            <img src={displayCover} alt={article.title} />
                         </div>
                     )}
 

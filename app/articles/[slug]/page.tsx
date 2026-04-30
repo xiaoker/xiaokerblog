@@ -84,15 +84,15 @@ export default async function ArticlePage({ params }: Props) {
             <div className="py-8 md:py-12">
                 <article className="min-w-0 w-full">
                     {/* WeChat Legacy Trick: First image in body, absolute URL, visible but off-screen */}
-                    {article.cover && (
-                        <div style={{ position: 'absolute', top: -1000, left: -1000, width: 0, height: 0, overflow: 'hidden' }}>
-                            <img 
-                                src={`https://xiaoker.com${article.cover.replace(".png", "-thumb.jpg")}`} 
-                                alt={article.title} 
-                                itemProp="image"
-                            />
-                        </div>
-                    )}
+                    <div style={{ position: 'absolute', top: -1000, left: -1000, width: 0, height: 0, overflow: 'hidden' }}>
+                        <img 
+                            src={article.cover 
+                                ? `https://xiaoker.com${article.cover.replace(".png", "-thumb.jpg")}` 
+                                : `https://xiaoker.com/images/site/wechat-default.jpg`} 
+                            alt={article.title} 
+                            itemProp="image"
+                        />
+                    </div>
 
                     <ArticleHeader
                         title={article.title}

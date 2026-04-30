@@ -45,7 +45,7 @@ export async function generateMetadata({ params }: Props) {
             images: [
                 {
                     url: ogImageUrl,
-                    width: 1200,
+                    width: 630,
                     height: 630,
                     alt: article.title,
                 }

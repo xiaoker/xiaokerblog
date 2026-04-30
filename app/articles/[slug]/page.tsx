@@ -83,13 +83,23 @@ export default async function ArticlePage({ params }: Props) {
         <div className="content-container relative">
             <div className="py-8 md:py-12">
                 <article className="min-w-0 w-full">
+                    {/* WeChat Legacy Trick: First image in body, absolute URL, visible but off-screen */}
+                    {article.cover && (
+                        <div style={{ position: 'absolute', top: -1000, left: -1000, width: 0, height: 0, overflow: 'hidden' }}>
+                            <img 
+                                src={`https://xiaoker.com${article.cover.replace(".png", "-thumb.jpg")}`} 
+                                alt={article.title} 
+                                itemProp="image"
+                            />
+                        </div>
+                    )}
+
                     <ArticleHeader
                         title={article.title}
                         date={article.date}
                         category={article.category}
                         cover={article.cover}
                     />
-
 
                     <script
                         type="application/ld+json"
@@ -111,13 +121,6 @@ export default async function ArticlePage({ params }: Props) {
                             })
                         }}
                     />
-
-                    {/* WeChat sharing thumbnail fallback */}
-                    {article.cover && (
-                        <div style={{ display: 'none' }}>
-                            <img src={article.cover} alt={article.title} />
-                        </div>
-                    )}
 
                     <div className="prose prose-neutral dark:prose-invert max-w-none mt-4">
                         <MDXRemote

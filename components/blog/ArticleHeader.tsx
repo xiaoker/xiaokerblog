@@ -30,10 +30,11 @@ export function ArticleHeader({
       {displayCover && (
         <div className="relative w-full overflow-hidden rounded-xl mb-8 bg-zinc-900 shadow-lg">
           <img
-            src={displayCover}
+            src={`https://xiaoker.com${displayCover}`}
             alt={title}
             className="w-full h-auto block transition-opacity duration-700 ease-in-out"
             loading="eager"
+            itemProp="image"
           />
         </div>
       )}

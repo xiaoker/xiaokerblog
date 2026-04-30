@@ -30,7 +30,7 @@ export const metadata: Metadata = {
         images: [
             {
                 url: 'https://xiaoker.com/images/site/og-image.jpeg',
-                width: 630,
+                width: 1200,
                 height: 630,
                 alt: '啸傲的兔子洞',
             }

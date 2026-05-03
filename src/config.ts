@@ -2,7 +2,7 @@ export const SITE = {
   website: "https://xiaoker.com",
   author: "啸傲",
   profile: "https://xiaoker.com",
-  desc: "我在这里记录关于投资、科技、成长等方面的思考，探索精神自由和财富自由。",
+  desc: "啸傲的博客，啸傲跟随好奇心的自然选择在这里记录关于投资、科技、成长等方面的思考，探索精神自由和财富自由。",
   title: "啸傲的兔子洞",
   ogImage: "images/site/og-image.jpeg",
   lightAndDarkMode: true,

@@ -23,18 +23,36 @@ import LinkButton from "./LinkButton.astro";
 
 <script>
   document.addEventListener("astro:page-load", () => {
+    // 优雅的 Toast 提示函数
+    function showToast(message) {
+      const toast = document.createElement('div');
+      toast.textContent = message;
+      // 设置 Toast 样式：固定在顶部居中，带有阴影和圆角
+      toast.className = 'fixed top-10 left-1/2 -translate-x-1/2 bg-accent text-white px-5 py-2.5 rounded-md shadow-lg transition-all duration-300 z-50 text-sm font-medium opacity-0 translate-y-[-20px]';
+      document.body.appendChild(toast);
+      
+      // 触发动画出现
+      requestAnimationFrame(() => {
+        toast.classList.remove('opacity-0', 'translate-y-[-20px]');
+      });
+      
+      // 3秒后淡出并移除
+      setTimeout(() => {
+        toast.classList.add('opacity-0', 'translate-y-[-20px]');
+        setTimeout(() => toast.remove(), 300);
+      }, 3000);
+    }
+
     const wechatLinks = document.querySelectorAll('.social-link[data-name="WeChat"]');
     wechatLinks.forEach(link => {
       link.addEventListener('click', (e) => {
         e.preventDefault();
-        
-        // 建议方案：点击直接复制微信号到剪贴板，并给予轻提示
-        const wechatId = "theXiaoker"; // 这里可以替换成你真实的公众号 ID
+        const wechatId = "theXiaoker";
         
         navigator.clipboard.writeText(wechatId).then(() => {
-          alert(`微信公众号 ID "${wechatId}" 已复制到剪贴板！\n请前往微信搜索关注。`);
+          showToast(`微信公众号 "${wechatId}" 已复制！请前往微信搜索关注。`);
         }).catch(err => {
-          alert(`微信公众号 ID: ${wechatId}`);
+          showToast(`微信公众号: ${wechatId}`);
         });
       });
     });

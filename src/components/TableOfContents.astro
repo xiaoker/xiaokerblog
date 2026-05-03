@@ -1,0 +1,109 @@
+---
+// TableOfContents.astro
+// 右侧 fixed 浮动目录，不影响主布局
+---
+
+<nav
+  id="toc"
+  aria-label="目录"
+  class="fixed top-24 hidden xl:block"
+  style="right: max(1rem, calc((100vw - 52rem) / 2 - 16rem)); width: 14rem; z-index: 20;"
+>
+  <p class="mb-3 text-xs font-semibold uppercase tracking-widest text-foreground/40">
+    目录
+  </p>
+  <ul id="toc-list" class="space-y-1 text-sm max-h-[calc(100vh-8rem)] overflow-y-auto">
+    <!-- 由 JS 填充 -->
+  </ul>
+</nav>
+
+<script is:inline data-astro-rerun>
+  function buildToc() {
+    const article = document.getElementById("article");
+    const list = document.getElementById("toc-list");
+    const toc = document.getElementById("toc");
+    if (!article || !list || !toc) return;
+
+    list.innerHTML = "";
+
+    const headings = Array.from(article.querySelectorAll("h2, h3"));
+
+    if (headings.length < 2) {
+      toc.style.display = "none";
+      return;
+    }
+    toc.style.display = "";
+
+    headings.forEach(heading => {
+      if (!heading.id) {
+        heading.id = heading.textContent
+          .trim()
+          .toLowerCase()
+          .replace(/\s+/g, "-")
+          .replace(/[^\w\u4e00-\u9fa5-]/g, "");
+      }
+
+      const li = document.createElement("li");
+      const a = document.createElement("a");
+      a.href = "#" + heading.id;
+      a.textContent = heading.textContent.replace(/#\s*$/, "").trim();
+      a.dataset.tocId = heading.id;
+      a.className = [
+        "toc-link block py-1 leading-snug transition-colors duration-150",
+        "text-foreground/40 hover:text-foreground no-underline",
+        heading.tagName === "H3" ? "pl-3 text-xs" : "text-sm",
+      ].join(" ");
+
+      a.addEventListener("click", e => {
+        e.preventDefault();
+        document.getElementById(heading.id)?.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      });
+
+      li.appendChild(a);
+      list.appendChild(li);
+    });
+
+    // Intersection Observer — 高亮当前章节
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          const link = list.querySelector(`[data-toc-id="${entry.target.id}"]`);
+          if (!link) return;
+          if (entry.isIntersecting) {
+            list.querySelectorAll(".toc-link").forEach(l =>
+              l.classList.remove("toc-active")
+            );
+            link.classList.add("toc-active");
+          }
+        });
+      },
+      { rootMargin: "-10% 0px -80% 0px", threshold: 0 }
+    );
+
+    headings.forEach(h => observer.observe(h));
+
+    document.addEventListener(
+      "astro:before-swap",
+      () => observer.disconnect(),
+      { once: true }
+    );
+  }
+
+  buildToc();
+  document.addEventListener("astro:after-swap", buildToc);
+</script>
+
+<style>
+  .toc-active {
+    color: var(--color-accent) !important;
+    font-weight: 500;
+  }
+
+  #toc-list {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-muted) transparent;
+  }
+</style>

@@ -1,0 +1,87 @@
+---
+import { SITE } from "@/config";
+---
+
+<section id="giscus-wrapper" class="mt-12"></section>
+
+<script is:inline data-astro-rerun>
+  function getGiscusTheme() {
+    const theme = document.documentElement.getAttribute("data-theme");
+    // 本地开发时使用 localhost 以便能正确加载调试 CSS
+    const baseUrl = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
+      ? window.location.origin
+      : 'https://www.xiaoker.com';
+      
+    return theme === "dark" 
+      ? `${baseUrl}/giscus-custom-dark.css` 
+      : `${baseUrl}/giscus-custom.css`;
+  }
+
+  function loadGiscus() {
+    const container = document.getElementById("giscus-wrapper");
+    if (!container) return;
+    
+    // Clear previous instance if it exists (for view transitions)
+    container.innerHTML = "";
+
+    const script = document.createElement("script");
+    script.src = "https://giscus.app/client.js";
+    script.setAttribute("data-repo", "xiaoker/xiaokerblog");
+    script.setAttribute("data-repo-id", "R_kgDOQvKniw");
+    script.setAttribute("data-category", "Announcements");
+    script.setAttribute("data-category-id", "DIC_kwDOQvKni84C0Qq9");
+    script.setAttribute("data-mapping", "pathname");
+    script.setAttribute("data-strict", "0");
+    script.setAttribute("data-reactions-enabled", "1");
+    script.setAttribute("data-emit-metadata", "0");
+    script.setAttribute("data-input-position", "top");
+    script.setAttribute("data-theme", getGiscusTheme());
+    script.setAttribute("data-lang", "zh-CN");
+    script.setAttribute("crossorigin", "anonymous");
+    script.async = true;
+
+    container.appendChild(script);
+  }
+
+  loadGiscus();
+
+  // Handle theme toggle dynamic updates
+  function updateGiscusTheme() {
+    const iframe = document.querySelector<HTMLIFrameElement>("iframe.giscus-frame");
+    if (!iframe || !iframe.contentWindow) return;
+    
+    iframe.contentWindow.postMessage(
+      {
+        giscus: {
+          setConfig: {
+            theme: getGiscusTheme(),
+          },
+        },
+      },
+      "https://giscus.app"
+    );
+  }
+
+  // Observe theme changes on the html element
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (mutation.attributeName === "data-theme") {
+        updateGiscusTheme();
+      }
+    });
+  });
+
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ["data-theme"],
+  });
+
+  // Disconnect observer when navigating away to prevent memory leaks
+  document.addEventListener(
+    "astro:before-swap",
+    () => {
+      observer.disconnect();
+    },
+    { once: true }
+  );
+</script>

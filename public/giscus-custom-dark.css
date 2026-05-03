@@ -1,30 +1,49 @@
-/* Custom Giscus Theme for xiaoker.com - Dark Mode */
-/* Ultra clean design with minimal borders */
+/* Custom Giscus Theme for xiaoker.com - Dark Mode (Astro Paper Sync) */
+/* Optimized for seamless integration with the Astro Paper theme */
 
 main {
-    /* Remove main container borders */
+    /* Astro Paper Dark Theme Variables */
+    --color-fg-default: #eaedf3;
+    --color-fg-muted: #9ba1b0;
+    --color-canvas-default: transparent;
+    --color-canvas-overlay: #212737;
+    --color-canvas-subtle: rgba(255, 255, 255, 0.05);
+    --color-border-default: #ab4b08;
+    --color-border-muted: transparent;
+    --color-accent-fg: #ff6b01;
+    --color-accent-emphasis: #ff6b01;
+    --color-btn-bg: #ff6b01;
+    --color-btn-text: #ffffff;
+    --color-btn-hover-bg: #cc5600;
+    --color-btn-border: transparent;
+    
+    /* Native Font Stack */
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif !important;
+    
     border: none !important;
     background: transparent !important;
-    color: hsl(0 0% 95%) !important;
 }
 
-/* Hide all horizontal dividers */
+/* Ensure font family is inherited in text areas and buttons */
+input, textarea, button, .gsc-comment, .gsc-comment-box {
+    font-family: inherit !important;
+}
+
+/* Hide horizontal dividers */
 hr {
     display: none !important;
 }
 
-/* Reaction and comment count area */
+/* Minimalist border control */
 .gsc-reactions,
 .gsc-comment-count {
     border: none !important;
 }
 
-/* Hide borders between reactions and comments */
 .gsc-reactions+.gsc-comment-count {
     border-top: none !important;
 }
 
-/* Comment input area */
 .gsc-comment-box {
     border: none !important;
     padding: 0 !important;
@@ -37,29 +56,37 @@ hr {
 .gsc-comment-box-tab {
     border: none !important;
     background: transparent !important;
+    color: var(--color-fg-muted) !important;
 }
 
 .gsc-comment-box-tab.gsc-comment-box-tab-active {
-    border-bottom: 2px solid hsl(0 0% 95%) !important;
+    border-bottom: 2px solid var(--color-fg-default) !important;
+    color: var(--color-fg-default) !important;
+    font-weight: 600;
 }
 
-/* Textarea */
+/* Textarea customization */
 .gsc-comment-box-textarea,
 .gsc-comment-box-preview {
-    border-color: hsl(240 6% 20%) !important;
+    border: 1px solid var(--color-border-default) !important;
     border-radius: 0.5rem !important;
-    background: hsl(240 10% 8%) !important;
-    color: hsl(0 0% 95%) !important;
+    background: var(--color-canvas-subtle) !important;
+    color: var(--color-fg-default) !important;
 }
 
-/* Comments list */
+.gsc-comment-box-textarea:focus {
+    outline: 2px dashed var(--color-accent-fg) !important;
+    outline-offset: 2px;
+}
+
+/* Comments list styling */
 .gsc-comments {
     border: none !important;
 }
 
 .gsc-comment {
     border: none !important;
-    border-bottom: 1px solid hsl(240 6% 20%) !important;
+    border-bottom: 1px solid var(--color-border-default) !important;
     padding: 1.5rem 0 !important;
 }
 
@@ -67,33 +94,41 @@ hr {
     border-bottom: none !important;
 }
 
-/* Remove timeline line */
+/* Typography styles to match links */
+.gsc-comment-content a {
+    color: var(--color-accent-fg) !important;
+    text-decoration: underline dashed !important;
+    text-underline-offset: 4px;
+}
+
+.gsc-comment-content a:hover {
+    color: var(--color-accent-fg) !important;
+    opacity: 0.8;
+}
+
+/* Clean up extra borders */
 .gsc-timeline {
     border-left: none !important;
 }
 
-/* Buttons */
-.gsc-comment-box-button,
-.gsc-reply-button,
-.gsc-reaction-button {
-    border-radius: 0.5rem !important;
-}
-
-/* Remove unnecessary borders from various elements */
 .gsc-comment-header,
-.gsc-comment-content,
 .gsc-comment-footer,
 .gsc-reply-box {
     border: none !important;
 }
 
-/* Pagination */
 .gsc-pagination {
     border-top: none !important;
     padding-top: 1rem !important;
 }
 
-/* Remove all color-border-muted classes */
 .color-border-muted {
     border-color: transparent !important;
+}
+
+/* Buttons rounded corners */
+.gsc-comment-box-button,
+.gsc-reply-button,
+.gsc-reaction-button {
+    border-radius: 0.5rem !important;
 }

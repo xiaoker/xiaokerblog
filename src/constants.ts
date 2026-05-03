@@ -32,7 +32,7 @@ export const SOCIALS: Social[] = [
   {
     name: "WeChat",
     href: "#",
-    linkTitle: `微信公众号: xiaoker`,
+    linkTitle: `微信公众号: theXiaoker`,
     icon: IconWechat,
   },
 ] as const;

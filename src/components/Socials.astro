@@ -29,7 +29,7 @@ import LinkButton from "./LinkButton.astro";
         e.preventDefault();
         
         // 建议方案：点击直接复制微信号到剪贴板，并给予轻提示
-        const wechatId = "xiaoker"; // 这里可以替换成你真实的公众号 ID
+        const wechatId = "theXiaoker"; // 这里可以替换成你真实的公众号 ID
         
         navigator.clipboard.writeText(wechatId).then(() => {
           alert(`微信公众号 ID "${wechatId}" 已复制到剪贴板！\n请前往微信搜索关注。`);

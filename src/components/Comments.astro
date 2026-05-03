@@ -6,13 +6,7 @@ import { SITE } from "@/config";
 
 <script is:inline data-astro-rerun>
   function getGiscusTheme() {
-    const theme = document.documentElement.getAttribute("data-theme");
-    // 动态获取当前域名，确保无论是 pages.dev 还是自定义域名都能正确加载 CSS
-    const baseUrl = window.location.origin;
-      
-    return theme === "dark" 
-      ? `${baseUrl}/giscus-custom-dark.css` 
-      : `${baseUrl}/giscus-custom.css`;
+    return "preferred_color_scheme";
   }
 
   function loadGiscus() {

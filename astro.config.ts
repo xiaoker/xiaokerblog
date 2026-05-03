@@ -55,6 +55,11 @@ export default defineConfig({
         context: "client",
         optional: true,
       }),
+      PUBLIC_GOOGLE_ANALYTICS_ID: envField.string({
+        access: "public",
+        context: "client",
+        optional: true,
+      }),
     },
   },
   // 旧 URL 兼容：/articles/[slug] → /posts/[slug] (301永久重定向)

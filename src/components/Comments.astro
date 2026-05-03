@@ -7,10 +7,8 @@ import { SITE } from "@/config";
 <script is:inline data-astro-rerun>
   function getGiscusTheme() {
     const theme = document.documentElement.getAttribute("data-theme");
-    // 本地开发时使用 localhost 以便能正确加载调试 CSS
-    const baseUrl = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
-      ? window.location.origin
-      : 'https://www.xiaoker.com';
+    // 动态获取当前域名，确保无论是 pages.dev 还是自定义域名都能正确加载 CSS
+    const baseUrl = window.location.origin;
       
     return theme === "dark" 
       ? `${baseUrl}/giscus-custom-dark.css` 

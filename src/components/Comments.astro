@@ -6,7 +6,8 @@ import { SITE } from "@/config";
 
 <script is:inline data-astro-rerun>
   function getGiscusTheme() {
-    return "preferred_color_scheme";
+    const theme = document.documentElement.getAttribute("data-theme");
+    return theme === "dark" ? "dark" : "light";
   }
 
   function loadGiscus() {

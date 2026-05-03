@@ -24,7 +24,7 @@ import LinkButton from "./LinkButton.astro";
 <script>
   document.addEventListener("astro:page-load", () => {
     // 优雅的 Toast 提示函数
-    function showToast(message) {
+    function showToast(message: string) {
       const toast = document.createElement('div');
       toast.textContent = message;
       // 设置 Toast 样式：固定在顶部居中，带有阴影和圆角
@@ -51,7 +51,7 @@ import LinkButton from "./LinkButton.astro";
         
         navigator.clipboard.writeText(wechatId).then(() => {
           showToast(`微信公众号 "${wechatId}" 已复制！请前往微信搜索关注。`);
-        }).catch(err => {
+        }).catch(() => {
           showToast(`微信公众号: ${wechatId}`);
         });
       });

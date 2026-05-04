@@ -4,9 +4,7 @@ pubDatetime: 2026-05-04T22:50:00+08:00
 author: "啸傲"
 featured: true
 draft: false
-tags:
-  - 博客
-  - AI
+tags: ["博客", "AI"]
 description: "记录一次在 AI 辅助下的博客重构之旅：从 Vercel 迁移到 Cloudflare Pages，以及一系列 UI 与交互细节的深度打磨。"
 ---
 

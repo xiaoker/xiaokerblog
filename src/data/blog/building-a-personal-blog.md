@@ -4,6 +4,8 @@ pubDatetime: 2025-12-20T00:00:00.000Z
 description: "用 Antigravity 构建了这个博客，太强了"
 tags: ["博客"]
 draft: false
+author: "啸傲"
+featured: false
 ---
 
 ## 引言

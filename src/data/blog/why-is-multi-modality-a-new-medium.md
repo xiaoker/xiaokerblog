@@ -4,6 +4,8 @@ pubDatetime: 2024-05-28T00:00:00.000Z
 description: "上周使用ChatGPT 4o 的时候意识到，ChatGPT 的多模态就是一个全新的媒介。 它让我和 ChatGPT 的交流，具有更高效完整的表达和理解能力。 为什么这么说呢？"
 tags: ["AI", "思考"]
 draft: false
+author: "啸傲"
+featured: false
 ---
 
 要思考，在Ai时代，需要我们有什么样的能力？

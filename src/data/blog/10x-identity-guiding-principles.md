@@ -4,6 +4,8 @@ pubDatetime: 2026-01-08T00:00:00.000Z
 description: "基于《10x Is Easier Than 2x》的思考，探讨如何通过建立10x身份来实现质的飞跃，而非量的积累。这不是关于做更多，而是关于成为更真实的自己。"
 tags: ["成长"]
 draft: false
+author: "啸傲"
+featured: false
 ---
 
 ## 为什么10x比2x更容易？

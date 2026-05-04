@@ -4,7 +4,6 @@ pubDatetime: 2023-11-17T00:00:00.000Z
 description: "好奇心是持续学习的原力，学会提问是未来的核心能力，算力和数据是基础设施"
 tags: ["科技", "AI"]
 draft: false
-author: "啸傲"
 featured: false
 ---
 

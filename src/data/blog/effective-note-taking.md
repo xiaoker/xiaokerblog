@@ -4,7 +4,6 @@ pubDatetime: 2024-12-05T00:00:00.000Z
 description: "好的笔记系统能够帮助我们更好地思考和创作。我将分享自己多年使用各种笔记工具的经验和最终形成的工作流。"
 tags: ["成长"]
 draft: false
-author: "啸傲"
 featured: false
 ---
 

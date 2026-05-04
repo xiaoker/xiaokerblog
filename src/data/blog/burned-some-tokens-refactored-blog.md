@@ -1,7 +1,6 @@
 ---
 title: "烧了些token，一行代码没写，把博客又重构了"
 pubDatetime: 2026-05-04T22:50:00+08:00
-author: "啸傲"
 featured: false
 draft: false
 tags: ["博客", "AI"]

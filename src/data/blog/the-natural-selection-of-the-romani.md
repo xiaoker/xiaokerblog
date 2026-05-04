@@ -4,7 +4,6 @@ pubDatetime: 2026-03-21T00:00:00.000Z
 description: "吉普赛人（罗姆人）这种看似被动无奈的“弱连接、高流动”网络，展现出了一种极致去中心化的反脆弱生存逻辑。"
 tags: ["思考"]
 draft: false
-author: "啸傲"
 featured: false
 ---
 

@@ -5,7 +5,6 @@ description: "2025年底，我完成了一次身份转变，这是我好奇心�
 tags: ["成长"]
 draft: false
 ogImage: "/images/articles/grateful-for-my-curiosity/life-paths.png"
-author: "啸傲"
 featured: false
 ---
 2025年12月31日，这一年的最后一天。想梳理下12月月中两个星期的意外收获，公开一部分来记录。

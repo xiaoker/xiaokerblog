@@ -4,7 +4,6 @@ pubDatetime: 2026-01-25T00:00:00.000Z
 description: "在人生的旅途中,我们每天都会接收到各种各样的信息:有些引导我们走向正确的方向,有些却让我们偏离轨道。学会区分信号和噪声,是找到属于自己道路的关键。"
 tags: ["成长"]
 draft: false
-author: "啸傲"
 featured: false
 ---
 

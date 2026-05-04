@@ -5,7 +5,6 @@ description: "年报季报密集，最大感触：碳基生命的消费真不行
 tags: ["投资"]
 draft: false
 ogImage: "/images/articles/silicon-vs-carbon-consumption/cover.png"
-author: "啸傲"
 featured: false
 ---
 

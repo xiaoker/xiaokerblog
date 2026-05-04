@@ -4,7 +4,7 @@ pubDatetime: 2026-04-29T00:00:00.000Z
 description: "年报季报密集，最大感触：碳基生命的消费真不行，硅基生命的消费是真好啊。硅基 vs 碳基，分红股里的烂人，还有做特斯拉股东的一言难尽。"
 tags: ["投资"]
 draft: false
-ogImage: "/images/articles/silicon-vs-carbon-consumption/cover.png"
+ogImage: "../../assets/images/articles/silicon-vs-carbon-consumption/cover.png"
 featured: false
 ---
 

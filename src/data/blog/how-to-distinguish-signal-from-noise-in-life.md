@@ -17,7 +17,7 @@ featured: false
 
 宇宙的能量会为你指引。你要做的,只是**听见这个声音,然后跟随它**。当你开始行动,它自然会给你反馈,而你也会有所感受。
 
-<img src="/images/articles/how-to-distinguish-signal-from-noise-in-life/illustration-inner-voice.png" alt="倾听内心的声音" style="border-radius:8px;margin:1.5rem auto;display:block;max-width:100%" />
+<img src="../../assets/images/articles/how-to-distinguish-signal-from-noise-in-life/illustration-inner-voice.png" alt="倾听内心的声音" style="border-radius:8px;margin:1.5rem auto;display:block;max-width:100%" />
 
 ## 二、理解反馈循环系统
 
@@ -29,7 +29,7 @@ featured: false
 
 延伸阅读:如何构建自己的正反馈循环系统
 
-<img src="/images/articles/how-to-distinguish-signal-from-noise-in-life/illustration-positive-feedback.png" alt="正反馈循环" style="border-radius:8px;margin:1.5rem auto;display:block;max-width:100%" />
+<img src="../../assets/images/articles/how-to-distinguish-signal-from-noise-in-life/illustration-positive-feedback.png" alt="正反馈循环" style="border-radius:8px;margin:1.5rem auto;display:block;max-width:100%" />
 
 ### 负反馈:寻找真正的原因
 
@@ -50,7 +50,7 @@ featured: false
 
 在长期想做的事情里遇到负反馈是正常的,关键是看整体趋势。
 
-<img src="/images/articles/how-to-distinguish-signal-from-noise-in-life/illustration-feedback-comparison.png" alt="长期vs即时反馈对比" style="border-radius:8px;margin:1.5rem auto;display:block;max-width:100%" />
+<img src="../../assets/images/articles/how-to-distinguish-signal-from-noise-in-life/illustration-feedback-comparison.png" alt="长期vs即时反馈对比" style="border-radius:8px;margin:1.5rem auto;display:block;max-width:100%" />
 
 ## 三、区分信号和噪声
 
@@ -61,7 +61,7 @@ featured: false
 
 当然,区分信号和噪声并不容易,因为负反馈往往是复杂的。但最重要的判断标准是:**你的意义感会给你笃定。**
 
-<img src="/images/articles/how-to-distinguish-signal-from-noise-in-life/illustration-signal-noise.png" alt="信号与噪声的区分" style="border-radius:8px;margin:1.5rem auto;display:block;max-width:100%" />
+<img src="../../assets/images/articles/how-to-distinguish-signal-from-noise-in-life/illustration-signal-noise.png" alt="信号与噪声的区分" style="border-radius:8px;margin:1.5rem auto;display:block;max-width:100%" />
 
 ### "想做" vs "要做"
 
@@ -78,7 +78,7 @@ featured: false
 
 奖励和补偿,本质不同。
 
-<img src="/images/articles/how-to-distinguish-signal-from-noise-in-life/illustration-reward-compensation.png" alt="奖励vs补偿" style="border-radius:8px;margin:1.5rem auto;display:block;max-width:100%" />
+<img src="../../assets/images/articles/how-to-distinguish-signal-from-noise-in-life/illustration-reward-compensation.png" alt="奖励vs补偿" style="border-radius:8px;margin:1.5rem auto;display:block;max-width:100%" />
 
 ## 结语
 

@@ -4,7 +4,7 @@ pubDatetime: 2025-12-31T00:00:00.000Z
 description: "2025年底，我完成了一次身份转变，这是我好奇心驱动下的自然选择。好奇心让我持续探索自我、完善自我，探索世界的边界和规律"
 tags: ["成长"]
 draft: false
-ogImage: "/images/articles/grateful-for-my-curiosity/life-paths.png"
+ogImage: "../../assets/images/articles/grateful-for-my-curiosity/life-paths.png"
 featured: false
 ---
 2025年12月31日，这一年的最后一天。想梳理下12月月中两个星期的意外收获，公开一部分来记录。
@@ -53,7 +53,7 @@ AI不是替代我思考，而是帮我思考得更深、更广、更清晰。 �
 
 **我有很多小径通往我的灵山。**
 
-<img src="/images/articles/grateful-for-my-curiosity/life-paths.png" alt="人生路径：过去的选择塑造了现在，而现在的你拥有无限的未来可能" style="border-radius:8px;margin:1.5rem auto;display:block;max-width:100%" />
+<img src="../../assets/images/articles/grateful-for-my-curiosity/life-paths.png" alt="人生路径：过去的选择塑造了现在，而现在的你拥有无限的未来可能" style="border-radius:8px;margin:1.5rem auto;display:block;max-width:100%" />
 
 每一次探索，都是好奇心驱动的。每一条小径，都在认识自己、积累认知、跟随正反馈，靠近自我的过程。
 

@@ -11,7 +11,7 @@ featured: false
 
 我过去对吉普赛人了解不深，但一直很喜欢他们身上那种如风般流动的状态。它其实带有一种强烈的“去中心化” web3色彩和早期数字游民的味道。在好奇心的驱使下，我深入翻阅了他们漫长而曲折的民族演化史，发现这是一个复杂系统中极其特别的样本。
 
-<img src="../../assets/images/articles/gypsie-survival-logic.png" alt="吉普赛人的自然选择" style="border-radius:8px;margin:1.5rem auto;display:block;max-width:100%" />
+![吉普赛人的自然选择](../../assets/images/articles/gypsie-survival-logic.png)
 
 ## 初始弱势的“出厂设定”
 

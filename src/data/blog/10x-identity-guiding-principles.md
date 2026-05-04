@@ -27,7 +27,7 @@ featured: false
 
 当你在做"需要"的事情时，你在参与竞争，在向外部世界证明自己。当你在做"想要"的事情时，你在玩无限游戏，你在做自己。
 
-<img src="../../assets/images/articles/10x-identity-guiding-principles/illustration-inner-voice.png" alt="内心声音vs外部噪音" style="border-radius:8px;margin:1.5rem auto;display:block;max-width:100%" />
+![内心声音vs外部噪音](../../assets/images/articles/10x-identity-guiding-principles/illustration-inner-voice.png)
 
 ### 实践方法
 
@@ -45,7 +45,7 @@ featured: false
 
 这个思维实验会强迫你跳出渐进式思维。如果你想要年收入从10万增长到20万，你可能会想"我需要加班，需要找个副业"。但如果目标是100万，你就必须重新思考：我的价值在哪里？什么是只有我能做的事情？
 
-<img src="../../assets/images/articles/10x-identity-guiding-principles/illustration-10x-vs-2x.png" alt="10x思维vs2x思维" style="border-radius:8px;margin:1.5rem auto;display:block;max-width:100%" />
+![10x思维vs2x思维](../../assets/images/articles/10x-identity-guiding-principles/illustration-10x-vs-2x.png)
 
 ### 发现独特能力的信号
 
@@ -56,7 +56,7 @@ featured: false
 
 这是你是谁的核心方面。它通常藏在你最想要的东西背后。
 
-<img src="../../assets/images/articles/10x-identity-guiding-principles/illustration-unique-ability.png" alt="独特能力的三个信号" style="border-radius:8px;margin:1.5rem auto;display:block;max-width:100%" />
+![独特能力的三个信号](../../assets/images/articles/10x-identity-guiding-principles/illustration-unique-ability.png)
 
 我的例子：我一直对AI和技术充满好奇，这不是因为我想成为"AI专家"来证明什么，而是因为探索这些东西本身就让我兴奋。当我把这个好奇心放大10x，我意识到我真正想做的是**用AI作为杠杆，探索人类认知和创造力的边界**。这个定位让我找到了独特的因果位。
 
@@ -70,7 +70,7 @@ featured: false
 
 纳瓦尔说过：**在一个具有无限杠杆的时代，判断力是最重要的能力。** 一个高质量的决策，配合代码、媒体、资本这些杠杆，可以产生指数级的影响。
 
-<img src="../../assets/images/articles/10x-identity-guiding-principles/illustration-leverage-position.png" alt="价值链中的因果位" style="border-radius:8px;margin:1.5rem auto;display:block;max-width:100%" />
+![价值链中的因果位](../../assets/images/articles/10x-identity-guiding-principles/illustration-leverage-position.png)
 
 ### 舍弃无效的80%
 
@@ -83,7 +83,7 @@ featured: false
 
 把这80%交出去，不是因为它们不重要，而是因为它们不是你的独特能力所在。你的时间是最宝贵的资源，应该100%投入在那20%上。
 
-<img src="../../assets/images/articles/10x-identity-guiding-principles/illustration-pareto-principle.png" alt="帕累托法则-20/80原则" style="border-radius:8px;margin:1.5rem auto;display:block;max-width:100%" />
+![帕累托法则-20/80原则](../../assets/images/articles/10x-identity-guiding-principles/illustration-pareto-principle.png)
 
 ## 第四原则：提高质量的最低标准
 
@@ -103,7 +103,7 @@ featured: false
 
 这些标准越清晰，你的进化方向就越明确。通过1000次自我迭代，你的独特能力会真正变得独特。
 
-<img src="../../assets/images/articles/10x-identity-guiding-principles/illustration-evolution-function.png" alt="适应度函数与进化" style="border-radius:8px;margin:1.5rem auto;display:block;max-width:100%" />
+![适应度函数与进化](../../assets/images/articles/10x-identity-guiding-principles/illustration-evolution-function.png)
 
 ## 第五原则：培养空和静
 
@@ -121,7 +121,7 @@ featured: false
 
 3. **减少信息输入**：不是所有信息都值得你的注意力。建立严格的信息过滤机制，只关注真正重要的信号。
 
-<img src="../../assets/images/articles/10x-identity-guiding-principles/illustration-emptiness-clarity.png" alt="空与静的状态" style="border-radius:8px;margin:1.5rem auto;display:block;max-width:100%" />
+![空与静的状态](../../assets/images/articles/10x-identity-guiding-principles/illustration-emptiness-clarity.png)
 
 ## 第六原则：专注关键时刻
 

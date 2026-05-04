@@ -53,7 +53,7 @@ AI不是替代我思考，而是帮我思考得更深、更广、更清晰。 �
 
 **我有很多小径通往我的灵山。**
 
-<img src="../../assets/images/articles/grateful-for-my-curiosity/life-paths.png" alt="人生路径：过去的选择塑造了现在，而现在的你拥有无限的未来可能" style="border-radius:8px;margin:1.5rem auto;display:block;max-width:100%" />
+![人生路径：过去的选择塑造了现在，而现在的你拥有无限的未来可能](../../assets/images/articles/grateful-for-my-curiosity/life-paths.png)
 
 每一次探索，都是好奇心驱动的。每一条小径，都在认识自己、积累认知、跟随正反馈，靠近自我的过程。
 

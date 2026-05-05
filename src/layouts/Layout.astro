@@ -184,6 +184,15 @@ const structuredData = {
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', PUBLIC_GOOGLE_ANALYTICS_ID);
+            
+            // 确保在 Astro 的单页面无刷新跳转 (ViewTransitions) 中也能正确触发页面访问统计
+            document.addEventListener('astro:page-load', () => {
+              if (typeof gtag === 'function') {
+                gtag('event', 'page_view', {
+                  page_path: window.location.pathname,
+                });
+              }
+            });
           </script>
         </>
       )

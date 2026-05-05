@@ -12,9 +12,10 @@ const URL = Astro.url;
       <div class="text-center">
         {SHARE_LINKS.map(social => (
           <LinkButton
-            href={`${social.href + URL}`}
-            class="scale-90 p-2 hover:rotate-6 sm:p-1"
+            href={`${social.href === "#" ? "#" : social.href + URL}`}
+            class={`scale-90 p-2 hover:rotate-6 sm:p-1 ${social.name === "WeChat" ? "share-wechat" : ""}`}
             title={social.linkTitle}
+            data-name={social.name}
           >
             <social.icon class="inline-block size-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110" />
             <span class="sr-only">{social.linkTitle}</span>
@@ -24,3 +25,41 @@ const URL = Astro.url;
     </div>
   )
 }
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    // 优雅的 Toast 提示函数
+    function showToast(message: string) {
+      const toast = document.createElement('div');
+      toast.textContent = message;
+      // 设置 Toast 样式：固定在顶部居中，带有阴影和圆角
+      toast.className = 'fixed top-10 left-1/2 -translate-x-1/2 bg-accent text-white px-5 py-2.5 rounded-md shadow-lg transition-all duration-300 z-50 text-sm font-medium opacity-0 translate-y-[-20px]';
+      document.body.appendChild(toast);
+      
+      // 触发动画出现
+      requestAnimationFrame(() => {
+        toast.classList.remove('opacity-0', 'translate-y-[-20px]');
+      });
+      
+      // 3秒后淡出并移除
+      setTimeout(() => {
+        toast.classList.add('opacity-0', 'translate-y-[-20px]');
+        setTimeout(() => toast.remove(), 300);
+      }, 3000);
+    }
+
+    const wechatShareLinks = document.querySelectorAll('.share-wechat');
+    wechatShareLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const currentUrl = window.location.href;
+        
+        navigator.clipboard.writeText(currentUrl).then(() => {
+          showToast('文章链接已复制！请前往微信粘贴分享给朋友或朋友圈。');
+        }).catch(() => {
+          showToast(`文章链接: ${currentUrl}`);
+        });
+      });
+    });
+  });
+</script>

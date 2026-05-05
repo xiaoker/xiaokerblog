@@ -7,6 +7,7 @@ import IconWhatsapp from "@/assets/icons/IconWhatsapp.svg";
 import IconFacebook from "@/assets/icons/IconFacebook.svg";
 import IconTelegram from "@/assets/icons/IconTelegram.svg";
 import IconPinterest from "@/assets/icons/IconPinterest.svg";
+import IconWeibo from "@/assets/icons/IconWeibo.svg";
 import { SITE } from "@/config";
 
 interface Social {
@@ -39,16 +40,16 @@ export const SOCIALS: Social[] = [
 
 export const SHARE_LINKS: Social[] = [
   {
-    name: "WhatsApp",
-    href: "https://wa.me/?text=",
-    linkTitle: `Share this post via WhatsApp`,
-    icon: IconWhatsapp,
+    name: "WeChat",
+    href: "#",
+    linkTitle: `Share this post on WeChat`,
+    icon: IconWechat,
   },
   {
-    name: "Facebook",
-    href: "https://www.facebook.com/sharer.php?u=",
-    linkTitle: `Share this post on Facebook`,
-    icon: IconFacebook,
+    name: "Weibo",
+    href: "http://service.weibo.com/share/share.php?url=",
+    linkTitle: `Share this post on Weibo`,
+    icon: IconWeibo,
   },
   {
     name: "X",
@@ -63,10 +64,16 @@ export const SHARE_LINKS: Social[] = [
     icon: IconTelegram,
   },
   {
-    name: "Pinterest",
-    href: "https://pinterest.com/pin/create/button/?url=",
-    linkTitle: `Share this post on Pinterest`,
-    icon: IconPinterest,
+    name: "WhatsApp",
+    href: "https://wa.me/?text=",
+    linkTitle: `Share this post via WhatsApp`,
+    icon: IconWhatsapp,
+  },
+  {
+    name: "Facebook",
+    href: "https://www.facebook.com/sharer.php?u=",
+    linkTitle: `Share this post on Facebook`,
+    icon: IconFacebook,
   },
   {
     name: "Mail",

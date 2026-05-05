@@ -53,11 +53,17 @@ const URL = Astro.url;
       link.addEventListener('click', (e) => {
         e.preventDefault();
         const currentUrl = window.location.href;
+        // 获取网页标题，如果包含 ' | ' 则只截取文章名字部分
+        let pageTitle = document.title;
+        if (pageTitle.includes(' | ')) {
+          pageTitle = pageTitle.split(' | ')[0];
+        }
+        const shareText = `${pageTitle}\n${currentUrl}`;
         
-        navigator.clipboard.writeText(currentUrl).then(() => {
-          showToast('文章链接已复制！请前往微信粘贴分享给朋友或朋友圈。');
+        navigator.clipboard.writeText(shareText).then(() => {
+          showToast('标题和链接已复制！请前往微信粘贴分享。');
         }).catch(() => {
-          showToast(`文章链接: ${currentUrl}`);
+          showToast(`链接: ${currentUrl}`);
         });
       });
     });

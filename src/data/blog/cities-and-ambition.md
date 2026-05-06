@@ -8,8 +8,6 @@ draft: false
 featured: false
 ---
 
-![构建正反馈](/images/cities-and-ambition-cover.png)
-
 上周回顾到2024年的笔记时，看到了保罗·格雷厄姆（Paul Graham）的一篇经典文章——《城市与野心》（Cities and Ambition）。这篇文章深入探讨了不同的城市环境如何潜移默化地塑造个人的追求。
 
 结合自己这段时间的一些经历，突然产生了一种强烈的直觉：**是时候继续保持流动了。** 不要低估一个对你激励相融的环境对你的正反馈影响。

@@ -59,6 +59,7 @@ export default defineConfig({
         access: "public",
         context: "client",
         optional: true,
+        default: "G-N2WZREXYDT",
       }),
     },
   },

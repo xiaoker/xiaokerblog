@@ -3,9 +3,12 @@ title: "要主动构建环境和正反馈循环"
 pubDatetime: 2026-05-05T15:16:20+08:00
 description: "不要低估一个对你激励相融的环境对你的正反馈影响。Paul Graham在《城市与野心》中写到，伟大的城市会向居住者传递一种独特的信息，这种信息如同空气一般无处不在，持续地激励或塑造着人们的野心。"
 tags: ["随笔", "思考", "环境"]
+ogImage: "/images/cities-and-ambition-cover.png"
 draft: false
 featured: false
 ---
+
+![构建正反馈](/images/cities-and-ambition-cover.png)
 
 上周回顾到2024年的笔记时，看到了保罗·格雷厄姆（Paul Graham）的一篇经典文章——《城市与野心》（Cities and Ambition）。这篇文章深入探讨了不同的城市环境如何潜移默化地塑造个人的追求。
 

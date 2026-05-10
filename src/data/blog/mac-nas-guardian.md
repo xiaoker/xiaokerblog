@@ -1,5 +1,5 @@
 ---
-title: "把吃灰的 Intel MacBook 改成 NAS，顺手写了个守护程序"
+title: "开源我的第一个项目，Mac NAS Guardian"
 pubDatetime: 2026-05-10T17:00:00+08:00
 description: "Intel MacBook 装飞牛 OS 做 NAS，没有风扇控制，夏天温度飙到 90°C。用Ai 写了个 Mac NAS Guardian，今天开源了。"
 tags: [ "开源", "NAS"]
@@ -8,9 +8,9 @@ draft: false
 featured: false
 ---
 
-有一台吃灰多年的旧款 Intel MacBook Pro。还是2014款的，去年表弟给我块2t的硬盘，于是刷了个飞牛 OS，不过有一些小问题，主要是风扇没法控制，温度上来了，风扇转速却上不来，在 nas 的场景下，就比较麻烦。
+有一台吃灰多年的旧款 Intel MacBook Pro，还是2014款的，当时加到16g内存，所以其实还能用，去年表弟给我块2t的硬盘，于是刷了个飞牛 NAS，体验还挺不错，不过有一些小问题，主要是风扇没法控制，温度上来了，风扇转速却上不来，在 nas 的场景下，就比较麻烦。
 
-于是乎用AI写了个守护程序，今天开源出来。
+于是乎用AI写了个守护程序，用了一段时间，还算稳定，今天开源出来。
 
 ### 问题：没人管风扇
 
